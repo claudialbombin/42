@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 11:05:55 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/07/22 19:16:11 by clopez-b         ###   ########.fr       */
+/*   Updated: 2025/07/24 10:19:14 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void	ft_putstr_non_printable(char *str)
 			ft_putchar(str[i]);
 		else
 			print_hex((unsigned char)str[i]);
+		i++;
 	}
 }
