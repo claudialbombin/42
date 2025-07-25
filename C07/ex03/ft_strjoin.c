@@ -15,8 +15,8 @@
 int	ft_strlen(char *str)
 {
 	int	len;
-    
-    len = 0;
+
+	len = 0;
 	while (str[len])
 		len++;
 	return (len);
@@ -27,8 +27,8 @@ int	get_total_length(int size, char **strs, char *sep)
 	int	i;
 	int	len;
 
-    i = 0;
-    len = 0;
+	i = 0;
+	len = 0;
 	while (i < size)
 	{
 		len += ft_strlen(strs[i]);
@@ -43,10 +43,10 @@ void	fill_result(char *result, int size, char **strs, char *sep)
 {
 	int	i;
 	int	pos;
-    int j;
+	int	j;
 
-    i = 0;
-    pos = 0;
+	i = 0;
+	pos = 0;
 	while (i < size)
 	{
 		j = 0;
