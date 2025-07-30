@@ -6,7 +6,7 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 11:46:41 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/07/25 11:25:52 by claudialbom      ###   ########.fr       */
+/*   Updated: 2025/07/25 11:35:49 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strdup(char *s1)
 	copy[i] = '\0';
 	return (copy);
 }
-/*int main(void)
+int main(void)
 {
     char *str = "Hello, World!";
     char *dup = ft_strdup(str);
@@ -54,4 +54,4 @@ char	*ft_strdup(char *s1)
         write(1, "Memory allocation failed\n", 25);
     }
     return (0);
-}*/
+}
