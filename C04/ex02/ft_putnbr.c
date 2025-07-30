@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 12:24:13 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/07/22 10:18:21 by clopez-b         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:13:03 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
