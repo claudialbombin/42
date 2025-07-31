@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/20 12:24:13 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/07/31 15:03:09 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/07/31 14:53:27 by claudialbom       #+#    #+#             */
+/*   Updated: 2025/07/31 14:53:59 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putnbr(int nb)
+int	ft_strcmp(char *s1, char *s2)
 {
-	char	num;
-	int		d;
-
-	d = 1;
-	if (nb == -2147483648)
+	while (*s1 && *s2 && *s1 == *s2)
 	{
-		write(1, "-2147483648", 11);
-		return ;
+		s1++;
+		s2++;
 	}
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = -nb;
-	}
-	while (nb / d >= 10)
-		d = d * 10;
-	while (d > 0)
-	{
-		num = nb / d + '0';
-		write (1, &num, 1);
-		nb = nb % d;
-		d = d / 10;
-	}
+	return (*s1 - *s2);
 }
