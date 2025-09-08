@@ -6,7 +6,7 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 14:57:35 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/07/31 16:13:15 by claudialbom      ###   ########.fr       */
+/*   Updated: 2025/07/31 17:57:00 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ char	**ft_split(char *str, char *charset)
 	result[i] = 0;
 	return (result);
 }
-/*
+
 int ft_strlen(char *str)
 {
     int len = 0;
@@ -125,4 +125,4 @@ int main(int argc, char **argv)
 		free(result);
 	}
 	return (0);
-}*/
+}
