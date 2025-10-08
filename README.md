@@ -79,7 +79,7 @@ Allí encontrarás otros trabajos relacionados con **ingeniería matemática**, 
 
 ---
 
-## 💭 Filosofía personal
+🧠 *Keep learning. Keep pushing.*
 
 > “El ordenador no es más que una herramienta; la creatividad está en quien lo usa.”  
 > — *Alan Perlis*
