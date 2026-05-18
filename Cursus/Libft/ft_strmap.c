@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:24:05 by clopez-b          #+#    #+#             */
-/*   Updated: 2025/10/08 22:25:40 by clopez-b         ###   ########.fr       */
+/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
+/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
-{
-	unsigned char		*d;
-	const unsigned char	*s;
+#include <stdlib.h>
 
-	if (!dest && !src)
-		return (0);
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	if (d < s)
+char	*ft_strmap(char const *s, char (*f)(char))
+{
+	char	*result;
+	int		i;
+	int		len;
+
+	if (!s || !f)
+		return (NULL);
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	result = (char *)malloc((len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		while (n--)
-			*d++ = *s++;
+		result[i] = f(s[i]);
+		i++;
 	}
-	else
-	{
-		d += n;
-		s += n;
-		while (n--)
-			*--d = *--s;
-	}
-	return (dest);
+	result[i] = '\0';
+	return (result);
 }

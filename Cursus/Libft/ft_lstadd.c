@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isprint.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:08:45 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/16 17:53:44 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
+/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "libft.h"
+
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if ((c >= 32) && (c <= 126))
-		return (1);
-	return (0);
+	if (!alst || !new)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }

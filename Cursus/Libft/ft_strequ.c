@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isprint.c                                          :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:08:45 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/16 17:53:44 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
+/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	if ((c >= 32) && (c <= 126))
-		return (1);
-	return (0);
+	int	i;
+
+	if (!s1 || !s2)
+		return (0);
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
+	}
+	if (s1[i] != '\0' || s2[i] != '\0')
+		return (0);
+	return (1);
 }

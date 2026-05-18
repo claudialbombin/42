@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isprint.c                                          :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:08:45 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/16 17:53:44 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
+/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <stdlib.h>
+#include <string.h>
+
+char	*ft_strnew(size_t size)
 {
-	if ((c >= 32) && (c <= 126))
-		return (1);
-	return (0);
+	char	*str;
+	size_t	i;
+
+	str = (char *)malloc((size + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i <= size)
+	{
+		str[i] = '\0';
+		i++;
+	}
+	return (str);
 }

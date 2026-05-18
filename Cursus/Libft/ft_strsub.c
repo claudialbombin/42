@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:24:05 by clopez-b          #+#    #+#             */
-/*   Updated: 2025/10/08 22:25:40 by clopez-b         ###   ########.fr       */
+/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
+/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
-{
-	unsigned char		*d;
-	const unsigned char	*s;
+#include <stdlib.h>
+#include <string.h>
 
-	if (!dest && !src)
-		return (0);
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	if (d < s)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	char	*sub;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	sub = (char *)malloc((len + 1) * sizeof(char));
+	if (!sub)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		while (n--)
-			*d++ = *s++;
+		sub[i] = s[start + i];
+		i++;
 	}
-	else
-	{
-		d += n;
-		s += n;
-		while (n--)
-			*--d = *--s;
-	}
-	return (dest);
+	sub[i] = '\0';
+	return (sub);
 }

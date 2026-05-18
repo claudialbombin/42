@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:24:05 by clopez-b          #+#    #+#             */
-/*   Updated: 2025/10/08 22:25:40 by clopez-b         ###   ########.fr       */
+/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
+/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
-{
-	unsigned char		*d;
-	const unsigned char	*s;
+#include <string.h>
 
-	if (!dest && !src)
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
+{
+	size_t	i;
+
+	if (!s1 || !s2)
 		return (0);
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	if (d < s)
+	i = 0;
+	while (i < n && s1[i] != '\0' && s2[i] != '\0')
 	{
-		while (n--)
-			*d++ = *s++;
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
 	}
-	else
-	{
-		d += n;
-		s += n;
-		while (n--)
-			*--d = *--s;
-	}
-	return (dest);
+	if (i < n && s1[i] != s2[i])
+		return (0);
+	return (1);
 }
