@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:01:31 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 22:02:10 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/05/18 15:09:11 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,8 @@ char	*ft_strnstr(const char *big, const char *little, unsigned int len)
 	}
 	return (0);
 }
+// int	main(void)
+// {
+// 	printf("ft_strnstr: prueba rápida\n");
+// 	return (0);
+// }

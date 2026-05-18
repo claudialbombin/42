@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcpy.c                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/08 09:06:28 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/09/08 09:28:38 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 22:27:37 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 15:06:43 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, const char *src)
+void	*ft_memcpy(void *dest, const void *src, unsigned int n)
 {
-	int	i;
+	unsigned int		i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
+	if (!dest && !src)
+		return (0);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
 	i = 0;
-	while (src[i])
+	while (i < n)
 	{
-		dest[i] = src[i];
+		d[i] = s[i];
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_memcpy: prueba rápida\n");
+// 	return (0);
+// }

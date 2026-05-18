@@ -28,3 +28,9 @@ void	ft_putnbr(int n)
 	c = (char)('0' + nb % 10);
 	write(1, &c, 1);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_putnbr: prueba rápida\n");
+// 	return (0);
+// }

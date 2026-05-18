@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:22:56 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 22:23:20 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 13:22:48 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 15:05:43 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memchr(const void *s, int c, unsigned int n)
+char	*ft_strcat(char *dest, const char *src)
 {
-	unsigned int		i;
-	unsigned char		*str;
+	int	i;
+	int	j;
 
 	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
-	{
-		if (str[i] == (unsigned char)c)
-			return ((void *)&str[i]);
+	j = 0;
+	while (dest[i])
 		i++;
+	while (src[j])
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_strcat: prueba rápida\n");
+// 	return (0);
+// }

@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcat.c                                           :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 13:22:48 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 13:25:54 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 22:24:05 by clopez-b          #+#    #+#             */
+/*   Updated: 2026/05/18 15:00:05 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, const char *src)
+void	*ft_memmove(void *dest, const void *src, unsigned int n)
 {
-	int	i;
-	int	j;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
+	if (!dest && !src)
+		return (0);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	if (d < s)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		while (n--)
+			*d++ = *s++;
 	}
-	dest[i] = '\0';
+	else
+	{
+		d += n;
+		s += n;
+		while (n--)
+			*--d = *--s;
+	}
 	return (dest);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_memmove: prueba rápida\n");
+// 	return (0);
+// }

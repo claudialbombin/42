@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/05/18 15:09:08 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,9 @@ int	ft_strequ(char const *s1, char const *s2)
 		return (0);
 	return (1);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_strequ: prueba rápida\n");
+// 	return (0);
+// }

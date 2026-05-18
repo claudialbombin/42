@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:04:03 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 22:04:46 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/09/08 09:06:28 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 15:02:52 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strcpy(char *dest, const char *src)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
+	while (src[i])
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i--;
+		dest[i] = src[i];
+		i++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_strcpy: prueba rápida\n");
+// 	return (0);
+// }

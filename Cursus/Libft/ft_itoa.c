@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/05/18 15:15:49 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,18 @@ static int	ft_numlen(int n)
 		len++;
 	}
 	return (len);
+}
+
+static void	ft_fill_str(char *str, long nb, int len)
+{
+	if (nb == 0)
+		str[0] = '0';
+	while (nb > 0)
+	{
+		str[len] = (char)('0' + nb % 10);
+		nb /= 10;
+		len--;
+	}
 }
 
 char	*ft_itoa(int n)
@@ -47,15 +59,14 @@ char	*ft_itoa(int n)
 		return (NULL);
 	str[len] = '\0';
 	len--;
-	if (nb == 0)
-		str[0] = '0';
-	while (nb > 0)
-	{
-		str[len] = (char)('0' + nb % 10);
-		nb /= 10;
-		len--;
-	}
+	ft_fill_str(str, nb, len);
 	if (neg)
 		str[0] = '-';
 	return (str);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_itoa: prueba rápida\n");
+// 	return (0);
+// }

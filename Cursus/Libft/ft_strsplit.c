@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/05/18 15:15:23 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,13 @@ static char	*ft_get_word(char const *s, char c, int *pos)
 	return (word);
 }
 
+static void	ft_free_arr(char **arr, int n)
+{
+	while (n > 0)
+		free(arr[--n]);
+	free(arr);
+}
+
 char	**ft_strsplit(char const *s, char c)
 {
 	char	**arr;
@@ -81,9 +88,7 @@ char	**ft_strsplit(char const *s, char c)
 		arr[i] = ft_get_word(s, c, &pos);
 		if (!arr[i])
 		{
-			while (i > 0)
-				free(arr[--i]);
-			free(arr);
+			ft_free_arr(arr, i);
 			return (NULL);
 		}
 		i++;
@@ -91,3 +96,9 @@ char	**ft_strsplit(char const *s, char c)
 	arr[i] = NULL;
 	return (arr);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_strsplit: prueba rápida\n");
+// 	return (0);
+// }

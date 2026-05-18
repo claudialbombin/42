@@ -1,19 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalnum.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:17:01 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 22:17:16 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/09/08 09:04:06 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 14:59:15 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include <stdlib.h>
+
+void	*ft_strdup(const char *s1)
 {
-	if (((c >= '0') && (c <= '9')) || ((c >= 'A') && (c <= 'Z'))
-		|| ((c >= 'a') && (c <= 'z')))
-		return (1);
-	return (0);
+	char	*copy;
+	int		i;
+
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	copy = (char *)malloc((i + 1) * sizeof(char));
+	if (!copy)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		copy[i] = s1[i];
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_strdup: prueba rápida\n");
+// 	return (0);
+// }

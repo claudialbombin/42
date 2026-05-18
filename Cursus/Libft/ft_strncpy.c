@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:27:37 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 22:27:46 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 13:14:23 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 14:49:19 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+char	*ft_strncpy(char *dest, const char *src, int len)
 {
-	unsigned int		i;
-	unsigned char		*d;
-	const unsigned char	*s;
+	int	i;
 
-	if (!dest && !src)
-		return (0);
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
 	i = 0;
-	while (i < n)
+	while ((src[i]) && (i < len))
 	{
-		d[i] = s[i];
+		dest[i] = src[i];
 		i++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }
+
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	char dest[20];
+// 	const char *src = "hola mundo";
+
+// 	ft_strncpy(dest, src, 5);
+// 	printf("dest (len 5): '%s'\n", dest); // espera: 'hola'
+
+// 	ft_strncpy(dest, src, 12);
+// 	printf("dest (len 12): '%s'\n", dest); // espera: 'hola mundo'
+
+// 	return (0);
+// }

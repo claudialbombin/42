@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/05/18 15:08:41 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,25 @@
 static int	ft_isspace(char c)
 {
 	return (c == ' ' || c == '\n' || c == '\t');
+}
+
+static char	*ft_copy_range(const char *s, unsigned int start, unsigned int end)
+{
+	char            *res;
+	unsigned int    i;
+
+	res = (char *)malloc((end - start + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (start < end)
+	{
+		res[i] = s[start];
+		i++;
+		start++;
+	}
+	res[i] = '\0';
+	return (res);
 }
 
 char	*ft_strtrim(char const *s)
@@ -34,16 +53,12 @@ char	*ft_strtrim(char const *s)
 		start++;
 	while (end > start && ft_isspace(s[end - 1]))
 		end--;
-	result = (char *)malloc((end - start + 1) * sizeof(char));
-	if (!result)
-		return (NULL);
-	i = 0;
-	while (start < end)
-	{
-		result[i] = s[start];
-		i++;
-		start++;
-	}
-	result[i] = '\0';
+	result = ft_copy_range(s, start, end);
 	return (result);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_strtrim: prueba rápida\n");
+// 	return (0);
+// }

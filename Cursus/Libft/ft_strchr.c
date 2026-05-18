@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memccpy.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:26:32 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 22:27:01 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 22:03:17 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 15:08:49 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memccpy(void *dest, const void *src, int c, unsigned int n)
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned int		i;
-	unsigned char		*d;
-	const unsigned char	*s;
+	int	i;
 
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
 	i = 0;
-	while (i < n)
+	while (s[i])
 	{
-		d[i] = s[i];
-		if (s[i] == (unsigned char)c)
-			return ((void *)&d[i + 1]);
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
 		i++;
 	}
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
 	return (0);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_strchr: prueba rápida\n");
+// 	return (0);
+// }
+

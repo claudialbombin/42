@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   toupper.c                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:21:43 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 22:21:49 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 22:17:45 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 15:09:09 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+int	ft_isdigit(int c)
 {
-	if ((c >= 'a') && (c <= 'z'))
-		return (c - 32);
-	return (c);
+	if ((c >= '0') && (c <= '9'))
+		return (1);
+	return (0);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_isdigit: prueba rápida\n");
+// 	return (0);
+// }

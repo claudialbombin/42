@@ -23,3 +23,9 @@ void	ft_strclr(char *s)
 		i++;
 	}
 }
+
+// int	main(void)
+// {
+// 	printf("ft_strclr: prueba rápida\n");
+// 	return (0);
+// }

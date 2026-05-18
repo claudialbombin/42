@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcat.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:05:58 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 22:06:52 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/05/18 14:59:15 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,9 @@ unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
 	dest[i] = '\0';
 	return (dest_len + src_len);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_strlcat: prueba rápida\n");
+// 	return (0);
+// }

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strncpy.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 13:14:23 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 13:21:02 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 21:53:56 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 14:58:09 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, const char *src, int len)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 
 	i = 0;
-	while ((src[i]) && (i < len))
-	{
-		dest[i] = src[i];
+	while (s1[i] && s2[i] && (s1[i] == s2[i]))
 		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_strcmp: prueba rápida\n");
+// 	return (0);
+// }

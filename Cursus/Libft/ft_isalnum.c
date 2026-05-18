@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memset.c                                           :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:28:17 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 22:28:26 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 22:17:01 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 14:54:11 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *b, int c, unsigned int len)
+int	ft_isalnum(int c)
 {
-	unsigned int	i;
-	unsigned char	*str;
-
-	str = (unsigned char *)b;
-	i = 0;
-	while (i < len)
-	{
-		str[i] = (unsigned char)c;
-		i++;
-	}
-	return (b);
+	if (((c >= '0') && (c <= '9')) || ((c >= 'A') && (c <= 'Z'))
+		|| ((c >= 'a') && (c <= 'z')))
+		return (1);
+	return (0);
 }
+
+
+// int	main(void)
+// {
+// 	int tests[] = {'a', 'Z', '5', '!', '\n', 0};
+// 	int i = 0;
+
+// 	while (tests[i])
+// 	{
+// 		printf("char '%c' (%d) -> isalnum: %d\n", tests[i], tests[i], ft_isalnum(tests[i]));
+// 		i++;
+// 	}
+// 	return (0);
+// }
+

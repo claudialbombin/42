@@ -22,3 +22,9 @@ void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 		lst = lst->next;
 	}
 }
+
+// int	main(void)
+// {
+// 	printf("ft_lstiter: prueba rápida\n");
+// 	return (0);
+// }

@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcmp.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 21:53:56 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 21:54:25 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 22:28:17 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 15:02:52 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	*ft_memset(void *b, int c, unsigned int len)
 {
-	int	i;
+	unsigned int	i;
+	unsigned char	*str;
 
+	str = (unsigned char *)b;
 	i = 0;
-	while (s1[i] && s2[i] && (s1[i] == s2[i]))
+	while (i < len)
+	{
+		str[i] = (unsigned char)c;
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	return (b);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_memset: prueba rápida\n");
+// 	return (0);
+// }

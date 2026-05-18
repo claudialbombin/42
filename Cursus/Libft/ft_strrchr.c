@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcmp.c                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
+/*   Created: 2025/10/08 22:04:03 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 15:04:46 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char	*a;
-	unsigned char	*b;
-	size_t			i;
+	int	i;
 
-	a = (unsigned char *)s1;
-	b = (unsigned char *)s2;
 	i = 0;
-	while (i < n)
-	{
-		if (a[i] != b[i])
-			return (a[i] - b[i]);
+	while (s[i])
 		i++;
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i--;
 	}
 	return (0);
 }
+
+
+// int	main(void)
+// {
+// 	printf("ft_strrchr: prueba rápida\n");
+// 	return (0);
+// }

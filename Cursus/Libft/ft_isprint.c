@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tolower.c                                          :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:21:13 by claudialbom       #+#    #+#             */
-/*   Updated: 2025/10/08 22:21:22 by claudialbom      ###   ########.fr       */
+/*   Created: 2025/10/08 22:08:45 by claudialbom       #+#    #+#             */
+/*   Updated: 2026/05/18 15:05:32 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+int	ft_isprint(int c)
 {
-	if ((c >= 'A') && (c <= 'Z'))
-		return (c + 32);
-	return (c);
+	if ((c >= 32) && (c <= 126))
+		return (1);
+	return (0);
 }
+
+// int	main(void)
+// {
+// 	printf("ft_isprint: prueba rápida\n");
+// 	return (0);
+// }
