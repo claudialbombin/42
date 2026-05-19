@@ -6,21 +6,27 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/05/18 15:08:41 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/05/18 17:09:47 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static int	ft_isspace(char c)
+static int	ft_is_in_set(char c, const char *set)
 {
-	return (c == ' ' || c == '\n' || c == '\t');
+	while (*set)
+	{
+		if (*set == c)
+			return (1);
+		set++;
+	}
+	return (0);
 }
 
 static char	*ft_copy_range(const char *s, unsigned int start, unsigned int end)
 {
-	char            *res;
-	unsigned int    i;
+	char			*res;
+	unsigned int	i;
 
 	res = (char *)malloc((end - start + 1) * sizeof(char));
 	if (!res)
@@ -36,22 +42,21 @@ static char	*ft_copy_range(const char *s, unsigned int start, unsigned int end)
 	return (res);
 }
 
-char	*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s, char const *set)
 {
 	char			*result;
 	unsigned int	start;
 	unsigned int	end;
-	unsigned int	i;
 
-	if (!s)
+	if (!s || !set)
 		return (NULL);
 	start = 0;
 	end = 0;
 	while (s[end] != '\0')
 		end++;
-	while (s[start] && ft_isspace(s[start]))
+	while (s[start] && ft_is_in_set(s[start], set))
 		start++;
-	while (end > start && ft_isspace(s[end - 1]))
+	while (end > start && ft_is_in_set(s[end - 1], set))
 		end--;
 	result = ft_copy_range(s, start, end);
 	return (result);

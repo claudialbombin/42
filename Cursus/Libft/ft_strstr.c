@@ -6,7 +6,7 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 21:55:51 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 15:06:43 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/05/18 15:51:35 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ char	*ft_strstr(const char *str, const char *to_find)
 
 	if (!*to_find)
 		return ((char *)str);
-
-// int	main(void)
-// {
-// 	printf("ft_strstr: prueba rápida\n");
-// 	return (0);
-// }
 	i = 0;
 	while (str[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:17:01 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 14:54:11 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/05/18 15:51:35 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-
-
-// int	main(void)
-// {
-// 	int tests[] = {'a', 'Z', '5', '!', '\n', 0};
-// 	int i = 0;
-
-// 	while (tests[i])
-// 	{
-// 		printf("char '%c' (%d) -> isalnum: %d\n", tests[i], tests[i], ft_isalnum(tests[i]));
-// 		i++;
-// 	}
-// 	return (0);
-// }
-

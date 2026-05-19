@@ -6,7 +6,7 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/05/18 15:09:09 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/05/18 15:51:35 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,4 @@ void	ft_putstr_fd(char const *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
-
-	// int	main(void)
-	// {
-	// 	printf("ft_putstr_fd: prueba rápida\n");
-	// 	return (0);
-	// }
 }

@@ -6,7 +6,7 @@
 #    By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#              #
-#    Updated: 2026/05/16 18:00:30 by claudialbom      ###   ########.fr        #
+#    Updated: 2026/05/18 15:54:24 by claudialbom      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,34 +19,34 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 # List of source files to compile
-SRCS =	memset.c \
-		bzero.c \
-		memcpy.c \
-		memccpy.c \
-		memmove.c \
-		memchr.c \
-		memcmp.c \
-		strlen.c \
-		strdup.c \
-		strcpy.c \
-		strncpy.c \
-		strcat.c \
-		strncat.c \
-		strlcat.c \
-		strchr.c \
-		strrchr.c \
-		strstr.c \
-		strnstr.c \
-		strcmp.c \
-		strncmp.c \
-		atoi.c \
-		isalpha.c \
-		isdigit.c \
-		isalnum.c \
-		isascii.c \
-		isprint.c \
-		toupper.c \
-		tolower.c \
+	SRCS =	ft_memset.c \
+		ft_bzero.c \
+		ft_memcpy.c \
+		ft_memccpy.c \
+		ft_memmove.c \
+		ft_memchr.c \
+		ft_memcmp.c \
+		ft_strlen.c \
+		ft_strdup.c \
+		ft_strcpy.c \
+		ft_strncpy.c \
+		ft_strcat.c \
+		ft_strncat.c \
+		ft_strlcat.c \
+		ft_strchr.c \
+		ft_strrchr.c \
+		ft_strstr.c \
+		ft_strnstr.c \
+		ft_strcmp.c \
+		ft_strncmp.c \
+		ft_atoi.c \
+		ft_isalpha.c \
+		ft_isdigit.c \
+		ft_isalnum.c \
+		ft_isascii.c \
+		ft_isprint.c \
+		ft_toupper.c \
+		ft_tolower.c \
 		ft_memalloc.c \
 		ft_memdel.c \
 		ft_strnew.c \

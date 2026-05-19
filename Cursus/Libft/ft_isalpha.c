@@ -6,7 +6,7 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:18:36 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 15:04:13 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/05/18 15:51:35 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,3 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	printf("ft_isalpha: prueba rápida\n");
-// 	return (0);
-// }
-
