@@ -6,16 +6,13 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 19:03:39 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 19:05:01 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/05/29 16:31:59 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
 
 void	ft_is_negative(int n)
 {

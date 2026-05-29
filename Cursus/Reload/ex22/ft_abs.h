@@ -6,13 +6,8 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 19:13:32 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 19:13:34 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/05/29 16:34:02 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-# define FT_ABS_H
-
-int	ft_abs(int n);
-
-#endif
+#define ABS(Value)	Value < 0 ? -Value : Value
