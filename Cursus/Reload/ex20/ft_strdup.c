@@ -6,68 +6,40 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 19:12:47 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/29 16:33:30 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/05/30 10:40:27 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+int	ft_str_length(char *str)
 {
-	int	i;
+	int	index;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
+	index = 0;
+	while (str[index])
+		index++;
+	return (index);
 }
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strdup(char *src)
 {
-	int	i;
+	int		index;
+	char	*dest;
+	char	*d;
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-void	ft_swap(char **a, char **b)
-{
-	char	*temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-int	main(int argc, char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < argc - 1)
+	index = 0;
+	d = ((dest = (char *)malloc(ft_str_length(src) * sizeof(char) + 1)));
+	if (!d)
 	{
-		j = i + 1;
-		while (j < argc)
-		{
-			if (ft_strcmp(argv[i], argv[j]) > 0)
-				ft_swap(&argv[i], &argv[j]);
-			j++;
-		}
-		i++;
+		return (0);
 	}
-	i = 1;
-	while (i < argc)
+	while (src[index])
 	{
-		ft_putstr(argv[i]);
-		ft_putchar('\n');
-		i++;
+		dest[index] = src[index];
+		index++;
 	}
-	return (0);
+	dest[index] = '\0';
+	return (dest);
 }
