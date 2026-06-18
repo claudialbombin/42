@@ -1,0 +1,2404 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{lastpage}
+\usepackage{pgf}
+\usepackage{multicol}
+
+% Configuración de página
+\geometry{
+    a4paper,
+    margin=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+% Colores personalizados
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{titleblue}{rgb}{0.13,0.33,0.53}
+\definecolor{levelcolor}{rgb}{0.2,0.4,0.6}
+\definecolor{exercisecolor}{rgb}{0.6,0,0}
+\definecolor{detailcolor}{rgb}{0,0.5,0}
+\definecolor{hintcolor}{rgb}{0.1,0.3,0.6}
+\definecolor{codebackground}{rgb}{0.97,0.97,0.97}
+
+% Configuración de listings para código C
+\lstset{
+    backgroundcolor=\color{codebackground},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color{codegreen},
+    extendedchars=true,
+    frame=single,
+    keepspaces=true,
+    keywordstyle=\color{blue}\bfseries,
+    language=C,
+    numberstyle=\tiny\color{codegray},
+    numbers=left,
+    numbersep=5pt,
+    rulecolor=\color{codegray},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    stringstyle=\color{codepurple},
+    tabsize=4,
+    frame=single,
+    frameround=tttt,
+    framexleftmargin=5mm,
+    framextopmargin=3mm,
+    framexbottommargin=3mm,
+    xleftmargin=5mm,
+    backgroundcolor=\color{codebackground}
+}
+
+% Configuración de encabezados y pies de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\fancyfoot[CE,CO]{\footnotesize Ejercicios de Programación}
+
+% Configuración de títulos de capítulo
+\titleformat{\chapter}[display]
+{\normalfont\Huge\bfseries\color{titleblue}}
+{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+
+% Configuración de títulos de sección
+\titleformat{\section}
+{\normalfont\Large\bfseries\color{levelcolor}}
+{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+% Comandos personalizados
+\newcommand{\exercise}[4]{
+    \clearpage
+    \vspace*{20pt}
+    \begin{center}
+        {\Huge\bfseries\color{exercisecolor} #1}
+    \end{center}
+    \vspace{10pt}
+    \begin{center}
+        {\large\color{detailcolor} \textbf{Nivel:} #2 \hspace{1cm} \textbf{Archivo:} #3 \hspace{1cm} \textbf{Funciones permitidas:} #4}
+    \end{center}
+    \vspace{15pt}
+    \hrule
+    \vspace{15pt}
+}
+
+\newcommand{\description}[1]{
+    \textbf{\large Descripción:}
+    \vspace{5pt}
+    \begin{quote}
+        #1
+    \end{quote}
+    \vspace{10pt}
+}
+
+\newcommand{\codeblock}[1]{
+    \textbf{\large Código:}
+    \vspace{5pt}
+    #1
+    \vspace{15pt}
+}
+
+\newcommand{\tip}[1]{
+    \begin{center}
+        \fcolorbox{blue!20}{blue!5}{
+            \begin{minipage}{0.9\textwidth}
+                \textbf{\color{hintcolor} 💡 Tip:} #1
+            \end{minipage}
+        }
+    \end{center}
+}
+
+\newcommand{\warning}[1]{
+    \begin{center}
+        \fcolorbox{red!20}{red!5}{
+            \begin{minipage}{0.9\textwidth}
+                \textbf{\color{red} ⚠️ Error común:} #1
+            \end{minipage}
+        }
+    \end{center}
+}
+
+% Título del documento
+\title{
+    \vspace{2cm}
+    {\Huge\bfseries\color{titleblue} Ejercicios de Programación}\\
+    \vspace{0.5cm}
+    {\Large Colección completa de ejercicios en C}\\
+    \vspace{1cm}
+    \includegraphics[width=0.3\textwidth]{images/c_logo.png}
+}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\vspace{2cm}
+\begin{center}
+    \Large
+    Organizado por niveles de dificultad\\
+    Cada ejercicio en una página separada\\
+    \vspace{0.5cm}
+    Con código, explicaciones y consejos
+\end{center}
+\newpage
+
+% Tabla de contenidos
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+% =========================
+% LEVEL 1
+% =========================
+\chapter{Level 1}
+\section*{Ejercicios Nivel 1}
+\addcontentsline{toc}{section}{Ejercicios Nivel 1}
+
+\exercise{first\_word}{1}{first\_word.c}{write}
+\description{
+    Write a program that takes a string and displays its first word, followed by a newline.\\
+    A word is a section of string delimited by spaces/tabs or by the start/end of the string.\\
+    If the number of parameters is not 1, or if there are no words, simply display a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main (int argc, char **argv)
+{
+    int i = 0;
+    if (argc == 2)
+    {
+        while (argv[1][i] == 32 || argv[1][i] == 9)
+            i++;
+        while ((argv[1][i] != 32 && argv[1][i] != 9) && argv[1][i])
+        {
+            write(1, &argv[1][i], 1);
+            i++;
+        }
+    }
+    write(1, "\n", 1);
+}
+    \end{lstlisting}
+}
+\tip{Primero salta los espacios en blanco iniciales, luego imprime hasta encontrar un espacio o el final de la cadena.}
+\warning{No olvides manejar tanto espacios (' ') como tabs ('\t').}
+
+% =========================
+\exercise{fizzbuzz}{1}{fizzbuzz.c}{write}
+\description{
+    Write a program that prints the numbers from 1 to 100, each separated by a newline.\\
+    If the number is a multiple of 3, it prints 'fizz' instead.\\
+    If the number is a multiple of 5, it prints 'buzz' instead.\\
+    If the number is both a multiple of 3 and a multiple of 5, it prints 'fizzbuzz' instead.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+void ft_write_number(int number)
+{
+    char str[10] = "0123456789";
+    if (number > 9)
+        ft_write_number(number / 10);
+    write (1, &str[number % 10], 1);
+}
+
+int main()
+{
+    int i = 1;
+    while (i <= 100)
+    {
+        if (i % 15 == 0)
+            write (1, "fizzbuzz", 8);
+        else if (i % 3 == 0)
+            write (1, "fizz", 4);
+        else if (i % 5 == 0)
+            write (1, "buzz", 4);
+        else
+            ft_write_number(i);
+        i++;
+        write (1, "\n", 1);
+    }
+}
+    \end{lstlisting}
+}
+\tip{Revisa primero si el número es múltiplo de 15 (divisible por 3 y 5).}
+\warning{No revisar primero múltiplos de 15 causará que aparezca "fizz" en lugar de "fizzbuzz".}
+
+% =========================
+\exercise{ft\_putstr}{1}{ft\_putstr.c}{write}
+\description{
+    Write a function that displays a string on the standard output.\\
+    The pointer passed to the function contains the address of the string's first character.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+void ft_putstr(char *str);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+void ft_putstr(char *str)
+{
+    int i = 0;
+    while (str[i])
+        write(1, &str[i++], 1);
+}
+    \end{lstlisting}
+}
+\tip{Recorre la cadena hasta encontrar el terminador nulo.}
+\warning{Usar printf en lugar de write, o olvidar incrementar el índice.}
+
+% =========================
+\exercise{ft\_strcpy}{1}{ft\_strcpy.c}{}
+\description{
+    Reproduce the behavior of the function strcpy (man strcpy).\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+char *ft_strcpy(char *s1, char *s2);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+char *ft_strcpy(char *s1, char *s2)
+{
+    int i = 0;
+    while (s2[i] != '\0')
+    {
+        s1[i] = s2[i];
+        i++;
+    }
+    s1[i] = '\0';
+    return (s1);
+}
+    \end{lstlisting}
+}
+\tip{Copia caracter por caracter hasta el terminador nulo, luego añade el terminador nulo al destino.}
+\warning{No añadir el terminador nulo al final de la cadena destino.}
+
+% =========================
+\exercise{ft\_strlen}{1}{ft\_strlen.c}{}
+\description{
+    Write a function that returns the length of a string.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+int ft_strlen(char *str);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+int ft_strlen(char *str)
+{
+    int i = 0;
+    while (str[i])
+        i++;
+    return (i);
+}
+    \end{lstlisting}
+}
+\tip{Simplemente cuenta caracteres hasta encontrar el terminador nulo.}
+\warning{Errores de off-by-one en el conteo.}
+
+% =========================
+\exercise{ft\_swap}{1}{ft\_swap.c}{}
+\description{
+    Write a function that swaps the contents of two integers the addresses of which are passed as parameters.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+void ft_swap(int *a, int *b);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+void ft_swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+    \end{lstlisting}
+}
+\tip{Usa una variable temporal para guardar uno de los valores durante el intercambio.}
+\warning{Intercambiar las direcciones en lugar de los valores en las direcciones.}
+
+% =========================
+\exercise{repeat\_alpha}{1}{repeat\_alpha.c}{write}
+\description{
+    Write a program called repeat\_alpha that takes a string and display it repeating each alphabetical character as many times as its alphabetical index, followed by a newline.\\
+    'a' becomes 'a', 'b' becomes 'bb', 'e' becomes 'eeeee', etc...\\
+    Case remains unchanged.\\
+    If the number of arguments is not 1, just display a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+void ft_putchar_n(char c, int i)
+{
+    while (i > 0)
+    {
+        write(1, &c, 1);
+        --i;
+    }
+}
+
+void repeat_alpha(char *str)
+{
+    while (*str != '\0')
+    {
+        if (*str >= 'a' && *str <= 'z')
+            ft_putchar_n(*str, *str + 1 - 'a');
+        else if (*str >= 'A' && *str <= 'Z')
+            ft_putchar_n(*str, *str + 1 - 'A');
+        else
+            write(1, str, 1);
+        ++str;
+    }
+}
+
+int main(int ac, char **av)
+{
+    if (ac == 2)
+        repeat_alpha(av[1]);
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Para cada letra, imprímela (índice de la letra + 1) veces.}
+\warning{Olvidar convertir la letra a un índice basado en 0 (restar 'a' o 'A').}
+
+% =========================
+\exercise{rev\_print}{1}{rev\_print.c}{write}
+\description{
+    Write a program that takes a string, and displays the string in reverse followed by a newline.\\
+    If the number of parameters is not 1, the program displays a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char *argv[])
+{
+    int i = 0;
+    if (argc == 2)
+    {
+        while (argv[1][i])
+            i += 1;
+        while (i)
+            write(1, &argv[1][--i], 1);
+    }
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Encuentra el final de la cadena, luego imprime hacia atrás.}
+\warning{Errores de off-by-one al iterar hacia atrás.}
+
+% =========================
+\exercise{rot\_13}{1}{rot\_13.c}{write}
+\description{
+    Write a program that takes a string and displays it, replacing each of its letters by the letter 13 spaces ahead in alphabetical order.\\
+    'z' becomes 'm' and 'Z' becomes 'M'. Case remains unaffected.\\
+    The output will be followed by a newline.\\
+    If the number of arguments is not 1, the program displays a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    int i = 0;
+    if (argc > 1)
+    {
+        while(argv[1][i])
+        {
+            if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
+                argv[1][i] = (argv[1][i] - 'a' + 13) % 26 + 'a';
+            else if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
+                argv[1][i] = (argv[1][i] - 'A' + 13) % 26 + 'A';
+            write(1, &argv[1][i], 1);
+            i++;
+        }
+    }
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Añade 13 a la letra, y envuelve si excede 'z' o 'Z'.}
+\warning{No manejar tanto mayúsculas como minúsculas.}
+
+% =========================
+\exercise{rotone}{1}{rotone.c}{write}
+\description{
+    Write a program that takes a string and displays it, replacing each of its letters by the next one in alphabetical order.\\
+    'z' becomes 'a' and 'Z' becomes 'A'. Case remains unaffected.\\
+    The output will be followed by a \textbackslash n.\\
+    If the number of arguments is not 1, the program displays \textbackslash n.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+void ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void rotone(char *s)
+{
+    while (*s)
+    {
+        if ((*s >= 'A' && *s <= 'Y') || (*s >= 'a' && *s <= 'y'))
+            ft_putchar(*s + 1);
+        else if (*s == 'Z' || *s == 'z')
+            ft_putchar(*s - 25);
+        else
+            ft_putchar(*s);
+        ++s;
+    }
+}
+
+int main(int ac, char **av)
+{
+    if (ac == 2)
+        rotone(av[1]);
+    ft_putchar('\n');
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Añade 1 a la letra, y envuelve 'z' a 'a' y 'Z' a 'A'.}
+\warning{Olvidar manejar el wrap-around para 'z' y 'Z'.}
+
+% =========================
+\exercise{search\_and\_replace}{1}{search\_and\_replace.c}{write, exit}
+\description{
+    Write a program called search\_and\_replace that takes 3 arguments, the first arguments is a string in which to replace a letter (2nd argument) by another one (3rd argument).\\
+    If the number of arguments is not 3, just display a newline.\\
+    If the second argument is not contained in the first one (the string) then the program simply rewrites the string followed by a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    int i = 0;
+    if (argc == 4 && !argv[2][1] & !argv[3][1])
+    {
+        while (argv[1][i]!='\0')
+        {
+            if (argv[1][i]==argv[2][0])
+            {
+                argv[1][i] = argv[3][0];
+            }
+            write (1, &argv[1][i], 1);
+            i++;
+        }
+    }
+    write (1, "\n", 1);
+}
+    \end{lstlisting}
+}
+\tip{Verifica que el segundo y tercer argumento sean caracteres individuales.}
+\warning{No verificar si el caracter de reemplazo es válido (caracter individual).}
+
+% =========================
+\exercise{ulstr}{1}{ulstr.c}{write}
+\description{
+    Write a program that takes a string and reverses the case of all its letters. Other characters remain unchanged.\\
+    You must display the result followed by a '\textbackslash n'.\\
+    If the number of arguments is not 1, the program displays '\textbackslash n'.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    int i = 0;
+    if (argc == 2)
+    {
+        while (argv[1][i] != '\0')
+        {
+            if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
+                argv[1][i] -= 32;
+            else if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
+                argv[1][i] += 32;
+            write(1, &argv[1][i], 1);
+            i++;
+        }
+    }
+    write(1, "\n", 1);
+}
+    \end{lstlisting}
+}
+\tip{Alterna mayúsculas a minúsculas y viceversa.}
+\warning{Usar == en lugar de = al asignar valores.}
+
+% =========================
+% LEVEL 2
+% =========================
+\chapter{Level 2}
+\section*{Ejercicios Nivel 2}
+\addcontentsline{toc}{section}{Ejercicios Nivel 2}
+
+\exercise{alpha\_mirror}{2}{alpha\_mirror.c}{write}
+\description{
+    Write a program called alpha\_mirror that takes a string and displays this string after replacing each alphabetical character by the opposite alphabetical character, followed by a newline.\\
+    'a' becomes 'z', 'Z' becomes 'A', 'd' becomes 'w', 'M' becomes 'N', and so on.\\
+    Case is not changed.\\
+    If the number of arguments is not 1, display only a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    int i = 0;
+    if (argc == 2)
+    {
+        while(argv[1][i])
+        {
+            if(argv[1][i] >= 65 && argv[1][i] <= 90)
+            {
+                argv[1][i] = 90 - argv[1][i] + 65;
+            }
+            else if (argv[1][i] >= 97 && argv[1][i] <= 122)
+            {
+                argv[1][i] = 122-argv[1][i] + 97;
+            }
+            write(1, &argv[1][i], 1);
+            i++;
+        }
+    }
+    write (1,"\n",1);
+}
+    \end{lstlisting}
+}
+\tip{Para cada letra, calcula su espejo: 'a'<->'z', 'b'<->'y', etc.}
+\warning{Usar valores fijos en lugar de calcular el espejo dinámicamente.}
+
+% =========================
+\exercise{camel\_to\_snake}{2}{camel\_to\_snake.c}{malloc, realloc, write}
+\description{
+    Write a program that takes a single string in lowerCamelCase format and converts it into a string in snake\_case format.\\
+    A lowerCamelCase string is a string where each word begins with a capital letter except for the first one.\\
+    A snake\_case string is a string where each word is in lower case, separated by an underscore "\_".
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    int i = 0;
+    if (argc == 2)
+    {
+        while(argv[1][i])
+        {
+            if(argv[1][i] >= 65 && argv[1][i] <= 90)
+            {
+                argv[1][i] = argv[1][i] + 32;
+                write (1, "_", 1);
+            }
+            write(1, &argv[1][i], 1);
+            i++;
+        }
+    }
+    write (1, "\n", 1);
+}
+    \end{lstlisting}
+}
+\tip{Añade un guión bajo antes de las letras mayúsculas (excepto la primera), luego convierte a minúscula.}
+\warning{Olvidar convertir la letra mayúscula a minúscula después de añadir el guión bajo.}
+
+% =========================
+\exercise{do\_op}{2}{do\_op.c}{atoi, printf, write}
+\description{
+    Write a program that takes three strings:\\
+    The first and the third one are representations of base-10 signed integers that fit in an int.\\
+    The second one is an arithmetic operator chosen from: + - * / \%\\
+    The program must display the result of the requested arithmetic operation, followed by a newline. If the number of parameters is not 3, the program just displays a newline.\\
+    You can assume the string have no mistakes or extraneous characters. Negative numbers, in input or output, will have one and only one leading '-'. The result of the operation fits in an int.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+    if (argc == 4)
+    {
+        if (argv[2][0] == '+')
+            printf("%d", (atoi(argv[1]) + atoi(argv[3])));
+        if (argv[2][0] == '-')
+            printf("%d", (atoi(argv[1]) - atoi(argv[3])));
+        if (argv[2][0] == '*')
+            printf("%d", (atoi(argv[1]) * atoi(argv[3])));
+        if (argv[2][0] == '/')
+            printf("%d", (atoi(argv[1]) / atoi(argv[3])));
+        if (argv[2][0] == '%')
+            printf("%d", (atoi(argv[1]) % atoi(argv[3])));
+    }
+    printf("\n");
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Usa atoi para convertir los números, luego realiza la operación basada en el operador.}
+\warning{No manejar el operador '*' correctamente (necesita escaping en el código).}
+
+% =========================
+\exercise{ft\_atoi}{2}{ft\_atoi.c}{None}
+\description{
+    Write a function that converts the string argument str to an integer (type int) and returns it.\\
+    It works much like the standard atoi(const char *str) function, see the man.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+int ft_atoi(const char *str);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+int ft_atoi(char *str)
+{
+    int result = 0;
+    int sign = 1;
+    while (*str == ' ' || (*str >= 9 && *str <= 13))
+        str++;
+    if (*str == '-')
+        sign = -1;
+    if (*str == '-' || *str == '+')
+        str++;
+    while (*str >= '0' && *str <= '9')
+    {
+        result = result * 10 + *str - '0';
+        str++;
+    }
+    return (sign * result);
+}
+    \end{lstlisting}
+}
+\tip{Salta espacios en blanco, maneja el signo, luego convierte dígitos hasta encontrar un no-dígito.}
+\warning{Olvidar manejar números negativos o desbordamiento.}
+
+% =========================
+\exercise{ft\_strcmp}{2}{ft\_strcmp.c}{}
+\description{
+    Reproduce the behavior of the function strcmp (man strcmp).\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+int ft_strcmp(char *s1, char *s2);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+int ft_strcmp(char *s1, char *s2)
+{
+    int i = 0;
+    while(s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+    {
+        i++;
+    }
+    return (s1[i] - s2[i]);
+}
+    \end{lstlisting}
+}
+\tip{Compara caracteres hasta encontrar una diferencia o que ambas cadenas terminen.}
+\warning{No devolver la diferencia de los primeros caracteres que no coinciden.}
+
+% =========================
+\exercise{ft\_strcspn}{2}{ft\_strcspn.c}{None}
+\description{
+    Reproduce exactly the behavior of the function strcspn (man strcspn).\\
+    The function should be prototyped as follows:
+    \begin{verbatim}
+size_t ft_strcspn(const char *s, const char *reject);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+size_t ft_strcspn(const char *s, const char *reject)
+{
+    int i = 0;
+    int j = 0;
+    while (s[i] != '\0')
+    {
+        j = 0;
+        while (reject[j] != '\0')
+        {
+            if(s[i] == reject[j])
+                return (i);
+            j++;
+        }
+        i++;
+    }
+    return (i);
+}
+    \end{lstlisting}
+}
+\tip{Revisa cada caracter de s contra todos los caracteres en reject.}
+\warning{No revisar todos los caracteres en reject para cada caracter en s.}
+
+% =========================
+\exercise{ft\_strdup}{2}{ft\_strdup.c}{malloc}
+\description{
+    Reproduce the behavior of the function strdup (man strdup).\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+char *ft_strdup(char *src);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <stdlib.h>
+
+char *ft_strdup(char *src)
+{
+    int i = 0;
+    int length = 0;
+    char *strcpy;
+    while (src[length])
+        length++;
+    strcpy = malloc(sizeof(*strcpy) * (length + 1));
+    if (strcpy != NULL)
+    {
+        while (src[i])
+        {
+            strcpy[i] = src[i];
+            i++;
+        }
+        strcpy[i] = '\0';
+    }
+    return (strcpy);
+}
+    \end{lstlisting}
+}
+\tip{Asigna memoria para la nueva cadena, copia el contenido y devuélvela.}
+\warning{No asignar suficiente memoria (necesita espacio para el terminador nulo).}
+
+% =========================
+\exercise{ft\_strpbrk}{2}{ft\_strpbrk.c}{None}
+\description{
+    Reproduce exactly the behavior of the function strpbrk (man strpbrk).\\
+    The function should be prototyped as follows:
+    \begin{verbatim}
+char *ft_strpbrk(const char *s1, const char *s2);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+char *ft_strpbrk(const char *s1, const char *s2)
+{
+    int i = 0;
+    if (!s1 || !s2)
+    {
+        return (0);
+    }
+    while(*s1)
+    {
+        i = 0;
+        while(s2[i])
+        {
+            if(*s1 == s2[i])
+                return (char *) s1;
+            i++;
+        }
+        s1++;
+    }
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Revisa cada caracter de s1 contra todos los caracteres en s2.}
+\warning{Devolver NULL si no hay coincidencia, pero olvidar avanzar s1.}
+
+% =========================
+\exercise{ft\_strrev}{2}{ft\_strrev.c}{}
+\description{
+    Write a function that reverses (in-place) a string.\\
+    It must return its parameter.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+char *ft_strrev(char *str);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+char *ft_strrev(char *str)
+{
+    int i = -1;
+    int length = 0;
+    char temporary;
+    while (str[length])
+        length++;
+    while (++i < length / 2)
+    {
+        temporary = str[i];
+        str[i] = str[length - 1 - i];
+        str[length - 1 - i] = temporary;
+    }
+    return (str);
+}
+    \end{lstlisting}
+}
+\tip{Intercambia caracteres desde el principio y el final, moviéndose hacia el medio.}
+\warning{Errores de off-by-one en la condición del bucle.}
+
+% =========================
+\exercise{ft\_strspn}{2}{ft\_strspn.c}{None}
+\description{
+    Reproduce exactly the behavior of the strspn function (man strspn).\\
+    The function should be prototyped as follows:
+    \begin{verbatim}
+size_t ft_strspn(const char *s, const char *accept);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+char *ft_strchr(const char *s, int c)
+{
+    while (*s != '\0')
+    {
+        if (*s == c)
+            return ((char *)s);
+        ++s;
+    }
+    return (0);
+}
+
+size_t ft_strspn(const char *s, const char *accept)
+{
+    size_t i = 0;
+    while (s[i] != '\0')
+    {
+        if (ft_strchr(accept, s[i]) == 0)
+            break;
+        ++i;
+    }
+    return (i);
+}
+    \end{lstlisting}
+}
+\tip{Revisa cada caracter de s contra todos los caracteres en accept.}
+\warning{Detenerse en el primer caracter que no está en accept.}
+
+% =========================
+\exercise{inter}{2}{inter.c}{write}
+\description{
+    Write a program that takes two strings and displays, without doubles, the characters that appear in both strings, in the order they appear in the first one.\\
+    The display will be followed by a \textbackslash n.\\
+    If the number of arguments is not 2, the program displays \textbackslash n.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int iter(char *str, char c, int len)
+{
+    int i = 0;
+    while (str[i] && (i < len || len == -1))
+        if (str[i++] == c)
+            return (1);
+    return (0);
+}
+
+int main(int argc, char *argv[])
+{
+    int i;
+    if (argc == 3)
+    {
+        i = 0;
+        while (argv[1][i])
+        {
+            if (!iter(argv[1], argv[1][i], i) && iter(argv[2], argv[1][i], -1))
+                write(1, &argv[1][i], 1);
+            i += 1;
+        }
+    }
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Para cada caracter en el primer string, verifica si aparece en el segundo y no ha sido impreso antes.}
+\warning{Imprimir duplicados del primer string.}
+
+% =========================
+\exercise{is\_power\_of\_2}{2}{is\_power\_of\_2.c}{None}
+\description{
+    Write a function that determines if a given number is a power of 2.\\
+    This function returns 1 if the given number is a power of 2, otherwise it returns 0.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+int is_power_of_2(unsigned int n);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+int is_power_of_2(unsigned int n)
+{
+    int number = 1;
+    while(number <= n)
+    {
+        if (number == n)
+        {
+            return 1;
+        }
+        number = number * 2;
+    }
+    return 0;
+}
+    \end{lstlisting}
+}
+\tip{Verifica si n es 0, luego verifica si n tiene exactamente un bit activado.}
+\warning{No manejar el caso donde n es 0.}
+
+% =========================
+\exercise{last\_word}{2}{last\_word.c}{write}
+\description{
+    Write a program that takes a string and displays its last word followed by a \textbackslash n.\\
+    A word is a section of string delimited by spaces/tabs or by the start/end of the string.\\
+    If the number of parameters is not 1, or there are no words, display a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+void last_word(char *str)
+{
+    int j = 0;
+    int i = 0;
+    while (str[i])
+    {
+        if (str[i] == ' ' && str[i + 1] >= 33 && str[i + 1] <= 126)
+            j = i + 1;
+        i++;
+    }
+    while (str[j] >= 33 && str[j] <= 127)
+    {
+        write(1, &str[j], 1);
+        j++;
+    }
+}
+
+int main(int argc, char **argv)
+{
+    if (argc == 2)
+        last_word(argv[1]);
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Encuentra la última palabra buscando desde el final de la cadena.}
+\warning{No saltar espacios en blanco al final antes de encontrar la última palabra.}
+
+% =========================
+\exercise{max}{2}{max.c}{}
+\description{
+    Write the following function:
+    \begin{verbatim}
+int max(int* tab, unsigned int len);
+    \end{verbatim}
+    The first parameter is an array of int, the second is the number of elements in the array.\\
+    The function returns the largest number found in the array.\\
+    If the array is empty, the function returns 0.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+int max(int *tab, unsigned int len)
+{
+    unsigned int result;
+    unsigned int i = 0;
+    result = tab[i];
+    while(i < len)
+    {
+        if (result < tab[i])
+        {
+            result = tab[i];
+        }
+        i++;
+    }
+    return result;
+}
+    \end{lstlisting}
+}
+\tip{Inicializa el resultado con el primer elemento, luego itera para encontrar el máximo.}
+\warning{No manejar arrays vacíos.}
+
+% =========================
+\exercise{print\_bits}{2}{print\_bits.c}{write}
+\description{
+    Write a function that takes a byte, and prints it in binary WITHOUT A NEWLINE AT THE END.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+void print_bits(unsigned char octet);
+    \end{verbatim}
+    Example, if you pass 2 to print\_bits, it will print "00000010"
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+void print_bits(unsigned char octet)
+{
+    int i = 8;
+    unsigned char bit;
+    while (i--)
+    {
+        bit = (octet >> i & 1) + '0';
+        write(1, &bit, 1);
+    }
+}
+    \end{lstlisting}
+}
+\tip{Desplaza el byte y enmascara con 1 para obtener cada bit.}
+\warning{Imprimir en el orden incorrecto (MSB a LSB).}
+
+% =========================
+\exercise{reverse\_bits}{2}{reverse\_bits.c}{}
+\description{
+    Write a function that takes a byte, reverses it, bit by bit (like the example) and returns the result.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+unsigned char reverse_bits(unsigned char octet);
+    \end{verbatim}
+    Example:
+    1 byte\\
+    0010 0110 $\rightarrow$ 0110 0100
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+unsigned char reverse_bits(unsigned char octet)
+{
+    int i = 8;
+    unsigned char res = 0;
+    while (i > 0)
+    {
+        res = res * 2 + (octet % 2);
+        octet = octet / 2;
+        i--;
+    }
+    return (res);
+}
+    \end{lstlisting}
+}
+\tip{Usa operaciones de bits para invertir los bits del byte.}
+\warning{No manejar los bits correctamente.}
+
+% =========================
+\exercise{snake\_to\_camel}{2}{snake\_to\_camel.c}{malloc, free, realloc, write}
+\description{
+    Write a program that takes a single string in snake\_case format and converts it into a string in lowerCamelCase format.\\
+    A snake\_case string is a string where each word is in lower case, separated by an underscore "\_".\\
+    A lowerCamelCase string is a string where each word begins with a capital letter except for the first one.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    int i = 0;
+    if (argc ==2 )
+    {
+        while(argv[1][i] != '\0')
+        {
+            if (argv[1][i] == '_')
+            {
+                i++;
+                argv[1][i] = argv[1][i]-32;
+            }
+            write (1, &argv[1][i], 1);
+            i++;
+        }
+    }
+    write(1, "\n", 1);
+}
+    \end{lstlisting}
+}
+\tip{Cuando veas un guión bajo, sáltalo y capitaliza la siguiente letra.}
+\warning{No verificar correctamente el guión bajo.}
+
+% =========================
+\exercise{swap\_bits}{2}{swap\_bits.c}{}
+\description{
+    Write a function that takes a byte, swaps its halves (like the example) and returns the result.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+unsigned char swap_bits(unsigned char octet);
+    \end{verbatim}
+    Example:
+    1 byte\\
+    0100 0001 $\rightarrow$ 0001 0100
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+unsigned char swap_bits(unsigned char octet)
+{
+    return ((octet >> 4) | (octet << 4));
+}
+    \end{lstlisting}
+}
+\tip{Desplaza a la derecha 4 y OR con desplazamiento a la izquierda 4.}
+\warning{Olvidar devolver el resultado.}
+
+% =========================
+\exercise{union}{2}{union.c}{write}
+\description{
+    Write a program that takes two strings and displays, without doubles, the characters that appear in either one of the strings. The display will be in the order characters appear in the command line, and will be followed by a \textbackslash n. If the number of arguments is not 2, the program displays \textbackslash n.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int check(int c, char *str, int index)
+{
+    int i = 0;
+    while(i < index)
+    {
+        if (str[i] == c)
+            return 0;
+        i++;
+    }
+    return 1;
+}
+
+int main(int argc, char **argv)
+{
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    if (argc == 3)
+    {
+        while(argv[1][i] != '\0')
+        {
+            i++;
+        }
+        while(argv[2][j] != '\0')
+        {
+            argv[1][i] = argv[2][j];
+            i++;
+            j++;
+        }
+        i--;
+        while(k <= i)
+        {
+            if(check(argv[1][k], argv[1], k) == 1)
+                write (1, &argv[1][k], 1);
+            k++;
+        }
+    }
+    write (1, "\n", 1);
+}
+    \end{lstlisting}
+}
+\tip{Imprime caracteres de las cadenas concatenadas, pero solo si no han sido impresos antes.}
+\warning{Imprimir duplicados.}
+
+% =========================
+\exercise{wdmatch}{2}{wdmatch.c}{write}
+\description{
+    Write a program that takes two strings and checks whether it's possible to write the first string with characters from the second string, while respecting the order in which these characters appear in the second string.\\
+    If it's possible, the program displays the string, followed by a \textbackslash n, otherwise it simply displays a \textbackslash n.\\
+    If the number of arguments is not 2, the program displays a \textbackslash n.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+void ft_putstr(char const *str)
+{
+    int i = 0;
+    while (str[i])
+        write(1, &str[i++], 1);
+}
+
+int main(int argc, char const *argv[])
+{
+    int i = 0;
+    int j = 0;
+    if (argc == 3)
+    {
+        while (argv[2][j])
+            if (argv[2][j++] == argv[1][i])
+                i += 1;
+        if (!argv[1][i])
+            ft_putstr(argv[1]);
+    }
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Intenta hacer coincidir cada caracter del primer string en el segundo string en orden.}
+\warning{No verificar si todos los caracteres del primer string fueron encontrados.}
+
+% =========================
+% LEVEL 3
+% =========================
+\chapter{Level 3}
+\section*{Ejercicios Nivel 3}
+\addcontentsline{toc}{section}{Ejercicios Nivel 3}
+
+\exercise{add\_prime\_sum}{3}{add\_prime\_sum.c}{write, exit}
+\description{
+    Write a program that takes a positive integer as argument and displays the sum of all prime numbers inferior or equal to it followed by a newline.\\
+    If the number of arguments is not 1, or the argument is not a positive number, just display 0 followed by a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int is_prime(int num)
+{
+    int i = 3;
+    if (num <= 1)
+        return (0);
+    if (num % 2 == 0 && num > 2)
+        return (0);
+    while (i < (num / 2))
+    {
+        if (num % i == 0)
+            return 0;
+        i += 2;
+    }
+    return 1;
+}
+
+int main(int argc, char *argv[])
+{
+    int sum = 0;
+    int nb = ft_atoi(argv[1]);
+    if (argc == 2)
+    {
+        while (nb > 0)
+            if (is_prime(nb--))
+                sum += (nb + 1);
+        ft_putnbr(sum);
+    }
+    if (argc != 2)
+        ft_putnbr(0);
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Verifica si un número es primo, luego suma todos los primos hasta n.}
+\warning{No manejar el caso donde n no es un número positivo.}
+
+% =========================
+\exercise{epur\_str}{3}{epur\_str.c}{write}
+\description{
+    Write a program that takes a string, and displays this string with exactly one space between words, with no spaces or tabs either at the beginning or the end, followed by a \textbackslash n.\\
+    A "word" is defined as a part of a string delimited either by spaces/tabs, or by the start/end of the string.\\
+    If the number of arguments is not 1, or if there are no words to display, the program displays \textbackslash n.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char const *argv[])
+{
+    int i;
+    int flg;
+    if (argc == 2)
+    {
+        i = 0;
+        while (argv[1][i] == ' ' || argv[1][i] == '\t')
+            i += 1;
+        while (argv[1][i])
+        {
+            if (argv[1][i] == ' ' || argv[1][i] == '\t')
+                flg = 1;
+            if (!(argv[1][i] == ' ' || argv[1][i] == '\t'))
+            {
+                if (flg)
+                    write(1, " ", 1);
+                flg = 0;
+                write(1, &argv[1][i], 1);
+            }
+            i += 1;
+        }
+    }
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Salta espacios en blanco al inicio/final, y reemplaza múltiples espacios con un solo espacio.}
+\warning{No manejar tabs junto con espacios.}
+
+% =========================
+\exercise{expand\_str}{3}{expand\_str.c}{write}
+\description{
+    Write a program that takes a string and displays it with exactly three spaces between each word, with no spaces or tabs either at the beginning or the end, followed by a newline.\\
+    A word is a section of string delimited either by spaces/tabs, or by the start/end of the string.\\
+    If the number of parameters is not 1, or if there are no words, simply display a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char const *argv[])
+{
+    int i;
+    int flag;
+    if (argc == 2)
+    {
+        i = 0;
+        while (argv[1][i] == ' ' || argv[1][i] == '\t')
+            i++;
+        while (argv[1][i])
+        {
+            if (argv[1][i] == ' ' || argv[1][i] == '\t')
+                flag = 1;
+            if (!(argv[1][i] == ' ' || argv[1][i] == '\t'))
+            {
+                if (flag)
+                    write(1, " ", 3);
+                flag = 0;
+                write(1, &argv[1][i], 1);
+            }
+            i++;
+        }
+    }
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Lo mismo que epur\_str pero con tres espacios entre palabras.}
+\warning{Usar un solo espacio en lugar de tres espacios.}
+
+% =========================
+\exercise{ft\_atoi\_base}{3}{ft\_atoi\_base.c}{None}
+\description{
+    Write a function that converts the string argument str (base N <= 16) to an integer (base 10) and returns it.\\
+    The characters recognized in the input are: 0123456789abcdef. Those are, of course, to be trimmed according to the requested base. For example, base 4 recognizes "0123" and base 16 recognizes "0123456789abcdef".\\
+    Uppercase letters must also be recognized: "12fdb3" is the same as "12FDB3".\\
+    Minus signs ('-') are interpreted only if they are the first character of the string.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+int ft_atoi_base(const char *str, int str_base);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+char to_lower(char c)
+{
+    if (c >= 'A' && c <= 'Z')
+        return (c + ('a' - 'A'));
+    return (c);
+}
+
+int get_digit(char c, int digits_in_base)
+{
+    int max_digit;
+    if (digits_in_base <= 10)
+        max_digit = digits_in_base + '0';
+    else
+        max_digit = digits_in_base - 10 + 'a';
+    if (c >= '0' && c <= '9' && c <= max_digit)
+        return (c - '0');
+    else if (c >= 'a' && c <= 'f' && c <= max_digit)
+        return (10 + c - 'a');
+    else
+        return (-1);
+}
+
+int ft_atoi_base(const char *str, int str_base)
+{
+    int result = 0;
+    int sign = 1;
+    int digit;
+    if (*str == '-')
+    {
+        sign = -1;
+        ++str;
+    }
+    while ((digit = get_digit(to_lower(*str), str_base)) >= 0)
+    {
+        result = result * str_base;
+        result = result + (digit * sign);
+        ++str;
+    }
+    return (result);
+}
+    \end{lstlisting}
+}
+\tip{Convierte de cualquier base (2-16) a decimal. Maneja signos y letras mayúsculas.}
+\warning{No manejar la validación de base correctamente.}
+
+% =========================
+\exercise{ft\_list\_size}{3}{ft\_list\_size.c}{}
+\description{
+    Write a function that returns the number of elements in the linked list that's passed to it.\\
+    It must be declared as follows:
+    \begin{verbatim}
+int ft_list_size(t_list *begin_list);
+    \end{verbatim}
+    You must use the following structure, and turn it in as a file called ft\_list.h:
+    \begin{verbatim}
+typedef struct s_list { struct s_list *next; void *data; } t_list;
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include "ft_list.h"
+
+int ft_list_size(t_list *begin_list)
+{
+    if (begin_list == 0)
+        return (0);
+    else
+        return (1 + ft_list_size(begin_list->next));
+}
+    \end{lstlisting}
+}
+\tip{Recorre la lista enlazada y cuenta los nodos.}
+\warning{No manejar listas vacías.}
+
+% =========================
+\exercise{ft\_range}{3}{ft\_range.c}{malloc}
+\description{
+    Write the following function:
+    \begin{verbatim}
+int *ft_range(int start, int end);
+    \end{verbatim}
+    It must allocate (with malloc()) an array of integers, fill it with consecutive values that begin at start and end at end (Including start and end !), then return a pointer to the first value of the array.\\
+    Examples:\\
+    With (1, 3) you will return an array containing 1, 2 and 3.\\
+    With (-1, 2) you will return an array containing -1, 0, 1 and 2.\\
+    With (0, 0) you will return an array containing 0.\\
+    With (0, -3) you will return an array containing 0, -1, -2 and -3.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <stdlib.h>
+
+int *ft_range(int start, int end)
+{
+    int i = 0;
+    int len = abs((end - start)) + 1;
+    int *res = (int *)malloc(sizeof(int) * len);
+    while (i < len)
+    {
+        if (start < end)
+        {
+            res[i] = start;
+            start++;
+            i++;
+        }
+        else
+        {
+            res[i] = start;
+            start--;
+            i++;
+        }
+    }
+    return (res);
+}
+    \end{lstlisting}
+}
+\tip{Calcula el tamaño necesario, luego llena el array con valores desde start hasta end.}
+\warning{No manejar la dirección (incremento o decremento) basada en los valores start/end.}
+
+% =========================
+\exercise{ft\_rrange}{3}{ft\_rrange.c}{malloc}
+\description{
+    Write the following function:
+    \begin{verbatim}
+int *ft_rrange(int start, int end);
+    \end{verbatim}
+    It must allocate (with malloc()) an array of integers, fill it with consecutive values that begin at end and end at start (Including start and end !), then return a pointer to the first value of the array.\\
+    Examples:\\
+    With (1, 3) you will return an array containing 3, 2 and 1\\
+    With (-1, 2) you will return an array containing 2, 1, 0 and -1.\\
+    With (0, 0) you will return an array containing 0.\\
+    With (0, -3) you will return an array containing -3, -2, -1 and 0.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <stdlib.h>
+
+int *ft_rrange(int start, int end)
+{
+    int *range;
+    int i = 0;
+    int n = end - start + 1;
+    if (start > end)
+        return (ft_rrange(end, start));
+    range = (int *)malloc(sizeof(int) * n);
+    if (range)
+    {
+        while (i < n)
+        {
+            range[i] = end;
+            end--;
+            i++;
+        }
+    }
+    return (range);
+}
+    \end{lstlisting}
+}
+\tip{Esta es la versión inversa de ft\_range. Llena desde end hasta start.}
+\warning{Confundir la dirección de iteración.}
+
+% =========================
+\exercise{hidenp}{3}{hidenp.c}{write}
+\description{
+    Write a program named hidenp that takes two strings and displays 1 followed by a newline if the first string is hidden in the second one, otherwise displays 0 followed by a newline.\\
+    Let s1 and s2 be strings. We say that s1 is hidden in s2 if it's possible to find each character from s1 in s2, in the same order as they appear in s1. Also, the empty string is hidden in any string.\\
+    If the number of parameters is not 2, the program displays a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    int i = 0;
+    int j = 0;
+    if (argc == 3)
+    {
+        while (argv[2][j] && argv[1][i])
+        {
+            if (argv[2][j] == argv[1][i])
+                i++;
+            j++;
+        }
+        if (argv[1][i] == '\0')
+            write(1, "1", 1);
+        else
+            write(1, "0", 1);
+    }
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Verifica si todos los caracteres del primer string aparecen en el segundo string en orden.}
+\warning{No manejar cadenas vacías correctamente.}
+
+% =========================
+\exercise{lcm}{3}{lcm.c}{}
+\description{
+    Write a function who takes two unsigned int as parameters and returns the computed LCM of those parameters.\\
+    LCM (Lowest Common Multiple) of two non-zero integers is the smallest positive integer divisible by the both integers.\\
+    If at least one integer is null, LCM is equal to 0.\\
+    Your function must be prototyped as follows:
+    \begin{verbatim}
+unsigned int lcm(unsigned int a, unsigned int b);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+unsigned int lcm(unsigned int a, unsigned int b)
+{
+    unsigned int n;
+    if (a == 0 || b == 0)
+        return (0);
+    if (a > b)
+        n = a;
+    else
+        n = b;
+    while (1)
+    {
+        if (n % a == 0 && n % b == 0)
+            return (n);
+        ++n;
+    }
+}
+    \end{lstlisting}
+}
+\tip{Usa la fórmula: lcm(a,b) = (a*b) / gcd(a,b).}
+\warning{No manejar valores cero.}
+
+% =========================
+\exercise{paramsum}{3}{paramsum.c}{write}
+\description{
+    Write a program that displays the number of arguments passed to it, followed by a newline.\\
+    If there are no arguments, just display a 0 followed by a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+void ft_putnbr(int n)
+{
+    char digit;
+    if (n >= 10)
+        ft_putnbr(n / 10);
+    digit = (n % 10) + '0';
+    write(1, &digit, 1);
+}
+
+int main(int argc, char **argv)
+{
+    (void)argv;
+    ft_putnbr(argc - 1);
+    write(1, "\n", 1);
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{El número de argumentos es argc - 1.}
+\warning{Contar todos los argumentos incluyendo el nombre del programa.}
+
+% =========================
+\exercise{pgcd}{3}{pgcd.c}{printf, atoi, malloc, free}
+\description{
+    Write a program that takes two strings representing two strictly positive integers that fit in an int.\\
+    Display their highest common denominator followed by a newline (It's always a strictly positive integer).\\
+    If the number of parameters is not 2, display a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char const *argv[])
+{
+    int string1 = atoi(argv[1]);
+    int string2 = atoi(argv[2]);
+    if (argc != 3)
+    {
+        printf("\n");
+        return 0;
+    }
+    if (string1 <= 0 || string2 <= 0)
+    {
+        printf("\n");
+        return 0;
+    }
+    while (string2 != 0)
+    {
+        int temporary = string2;
+        string2 = string1 % string2;
+        string1 = temporary;
+    }
+    printf("%d\n", string1);
+    return 0;
+}
+    \end{lstlisting}
+}
+\tip{Usa el algoritmo de Euclides para encontrar el GCD.}
+\warning{No manejar el caso donde a o b es 0.}
+
+% =========================
+\exercise{print\_hex}{3}{print\_hex.c}{write}
+\description{
+    Write a program that takes a positive (or zero) number expressed in base 10, and displays it in base 16 (lowercase letters) followed by a newline.\\
+    If the number of parameters is not 1, the program displays a newline.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int ft_atoi(char *str)
+{
+    int n = 0;
+    while (*str != '\0')
+    {
+        n = n * 10;
+        n = n + *str - '0';
+        ++str;
+    }
+    return (n);
+}
+
+void print_hex(int n)
+{
+    char hex_digits[] = "0123456789abcdef";
+    if (n >= 16)
+        print_hex(n / 16);
+    write(1, &hex_digits[n % 16], 1);
+}
+
+int main(int argc, char **argv)
+{
+    if (argc == 2)
+        print_hex(ft_atoi(argv[1]));
+    write(1, "\n", 1);
+}
+    \end{lstlisting}
+}
+\tip{Convierte decimal a hexadecimal dividiendo por 16 repetidamente.}
+\warning{No manejar el caso donde el número es 0.}
+
+% =========================
+\exercise{rstr\_capitalizer}{3}{rstr\_capitalizer.c}{write}
+\description{
+    Write a program that takes one or more strings and, for each argument, puts the last character that is a letter of each word in uppercase and the rest in lowercase, then displays the result followed by a \textbackslash n.\\
+    A word is a section of string delimited by spaces/tabs or the start/end of the string. If a word has a single letter, it must be capitalized.\\
+    A letter is a character in the set [a-zA-Z]\\
+    If there are no parameters, display \textbackslash n.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+void rstr_capitalizer(char *str)
+{
+    int i = 0;
+    while (str[i])
+    {
+        if (str[i] >= 'A' && str[i] <= 'Z')
+            str[i] += 32;
+        if ((str[i] >= 'a' && str[i] <= 'z') && (str[i + 1] == ' ' || str[i + 1] == '\t' || str[i + 1] == '\0'))
+            str[i] -= 32;
+        write(1, &str[i++], 1);
+    }
+}
+
+int main(int argc, char **argv)
+{
+    int i;
+    if (argc == 1)
+        write(1, "\n", 1);
+    else
+    {
+        i = 1;
+        while (i < argc)
+        {
+            rstr_capitalizer(argv[i]);
+            write(1, "\n", 1);
+            i += 1;
+        }
+    }
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Convierte todas las letras a minúsculas, luego capitaliza la última letra de cada palabra.}
+\warning{No manejar palabras de una sola letra.}
+
+% =========================
+\exercise{str\_capitalizer}{3}{str\_capitalizer.c}{write}
+\description{
+    Write a program that takes one or several strings and, for each argument, capitalizes the first character of each word (If it's a letter, obviously), puts the rest in lowercase, and displays the result on the standard output, followed by a \textbackslash n.\\
+    A "word" is defined as a part of a string delimited either by spaces/tabs, or by the start/end of the string. If a word only has one letter, it must be capitalized. If there are no arguments, the progam must display \textbackslash n.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+void str_capitalizer(char *str)
+{
+    int i = 0;
+    if (str[i] >= 'a' && 'z' >= str[i])
+        str[i] -= 32;
+    write(1, &str[i], 1);
+    while (str[++i])
+    {
+        if (str[i] >= 'A' && 'Z' >= str[i])
+            str[i] += 32;
+        if ((str[i] >= 'a' && 'z' >= str[i]) && (str[i - 1] == ' ' || str[i - 1] == '\t'))
+            str[i] -= 32;
+        write(1, &str[i], 1);
+    }
+}
+
+int main(int argc, char *argv[])
+{
+    int i;
+    if (argc < 2)
+        write(1, "\n", 1);
+    else
+    {
+        i = 1;
+        while (i < argc)
+        {
+            str_capitalizer(argv[i]);
+            write(1, "\n", 1);
+            i += 1;
+        }
+    }
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Convierte todas las letras a minúsculas, luego capitaliza la primera letra de cada palabra.}
+\warning{No manejar el primer caracter de la cadena.}
+
+% =========================
+\exercise{tab\_mult}{3}{tab\_mult.c}{write}
+\description{
+    Write a program that displays a number's multiplication table.\\
+    The parameter will always be a strictly positive number that fits in an int, and said number times 9 will also fit in an int.\\
+    If there are no parameters, the program displays \textbackslash n.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int ft_atoi(char *str)
+{
+    int result;
+    int sign;
+    result = 0;
+    sign = 1;
+    while (*str == ' ' || (*str >= 9 && *str <= 13))
+        str++;
+    if (*str == '-')
+        sign = -1;
+    if (*str == '-' || *str == '+')
+        str++;
+    while (*str >= '0' && *str <= '9')
+    {
+        result = result * 10 + *str - '0';
+        str++;
+    }
+    return (sign * result);
+}
+
+void ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void ft_putnbr(int nb)
+{
+    if (nb == -2147483648)
+    {
+        ft_putchar('-');
+        ft_putchar('2');
+        nb = (nb % 1000000000 * -1);
+    }
+    if (nb < 0)
+    {
+        ft_putchar('-');
+        nb = (nb * -1);
+    }
+    if (nb / 10 > 0)
+        ft_putnbr(nb / 10);
+    ft_putchar(nb % 10 + '0');
+}
+
+int main(int argc, char *argv[])
+{
+    int i;
+    int nbr;
+    if (argc != 2)
+        write(1, "\n", 1);
+    else
+    {
+        i = 1;
+        nbr = ft_atoi(argv[1]);
+        while (i <= 9)
+        {
+            ft_putnbr(i);
+            write(1, " x ", 3);
+            ft_putnbr(nbr);
+            write(1, " = ", 3);
+            ft_putnbr(i * nbr);
+            write(1, "\n", 1);
+            i += 1;
+        }
+    }
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Imprime la tabla de multiplicar del 1 al 9.}
+\warning{Problemas de formato en la salida.}
+
+% =========================
+% LEVEL 4
+% =========================
+\chapter{Level 4}
+\section*{Ejercicios Nivel 4}
+\addcontentsline{toc}{section}{Ejercicios Nivel 4}
+
+\exercise{flood\_fill}{4}{flood\_fill.c}{-}
+\description{
+    Write a function that takes a char ** as a 2-dimensional array of char, a t\_point as the dimensions of this array and a t\_point as the starting point.\\
+    Starting from the given 'begin' t\_point, this function fills an entire zone by replacing characters inside with the character 'F'. A zone is an group of the same character delimited horizontally and vertically by other characters or the array boundary.\\
+    The flood\_fill function won't fill diagonally.\\
+    The flood\_fill function will be prototyped like this: \texttt{void flood\_fill(char **tab, t\_point size, t\_point begin);}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+typedef struct s_point
+{
+    int x;
+    int y;
+} t_point;
+
+void fill(char **tab, t_point size, t_point cur, char to_fill)
+{
+    if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
+        || tab[cur.y][cur.x] != to_fill)
+        return;
+    tab[cur.y][cur.x] = 'F';
+    fill(tab, size, (t_point){cur.x - 1, cur.y}, to_fill);
+    fill(tab, size, (t_point){cur.x + 1, cur.y}, to_fill);
+    fill(tab, size, (t_point){cur.x, cur.y - 1}, to_fill);
+    fill(tab, size, (t_point){cur.x, cur.y + 1}, to_fill);
+}
+
+void flood_fill(char **tab, t_point size, t_point begin)
+{
+    fill(tab, size, begin, tab[begin.y][begin.x]);
+}
+    \end{lstlisting}
+}
+\tip{Usa recursión para llenar el área. Revisa los límites y evita recursión infinita.}
+\warning{No revisar los límites del array o causar stack overflow.}
+
+% =========================
+\exercise{fprime}{4}{fprime.c}{printf, atoi}
+\description{
+    Write a program that takes a positive int and displays its prime factors on the standard output, followed by a newline.\\
+    Factors must be displayed in ascending order and separated by '*', so that the expression in the output gives the right result.\\
+    If the number of parameters is not 1, simply display a newline.\\
+    The input, when there is one, will be valid.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+    int i;
+    int number;
+    if (argc == 2)
+    {
+        i = 1;
+        number = atoi(argv[1]);
+        if (number == 1)
+            printf("1");
+        while (number >= ++i)
+        {
+            if (number % i == 0)
+            {
+                printf("%d", i);
+                if (number == i)
+                    break ;
+                printf("*");
+                number /= i;
+                i = 1;
+            }
+        }
+    }
+    printf("\n");
+    return (0);
+}
+    \end{lstlisting}
+}
+\tip{Encuentra los factores primos dividiendo el número por el factor más pequeño posible.}
+\warning{No manejar el caso donde el número es 1.}
+
+% =========================
+\exercise{ft\_itoa}{4}{ft\_itoa.c}{malloc}
+\description{
+    Write a function that takes an int and converts it to a null-terminated string. The function returns the result in a char array that you must allocate.\\
+    Your function must be declared as follows: \texttt{char *ft\_itoa(int nbr);}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <stdlib.h>
+
+char *ft_itoa(int nbr)
+{
+    int n = nbr;
+    int len = 0;
+    if (nbr <= 0)
+        len++;
+    while (n)
+    {
+        n /= 10;
+        len++;
+    }
+    char *result = (char *)malloc(sizeof(char) * (len + 1));
+    if (result == NULL)
+    {
+        return NULL;
+    }
+    result[len] = '\0';
+    if (nbr == 0)
+    {
+        result[0] = '0';
+        return(result);
+    }
+    if (nbr < 0)
+    {
+        result[0] = '-';
+        nbr = -nbr;
+    }
+    while (nbr)
+    {
+        result[--len] = nbr % 10 + '0';
+        nbr /= 10;
+    }
+    return result;
+}
+    \end{lstlisting}
+}
+\tip{Maneja números negativos y cero por separado.}
+\warning{No manejar el valor mínimo de int correctamente.}
+
+% =========================
+\exercise{ft\_list\_foreach}{4}{ft\_list\_foreach.c}{}
+\description{
+    Write a function that takes a list and a function pointer, and applies this function to each element of the list.\\
+    It must be declared as follows:
+    \begin{verbatim}
+void ft_list_foreach(t_list *begin_list, void (*f)(void *));
+    \end{verbatim}
+    The function pointed to by f will be used as follows:
+    \begin{verbatim}
+(*f)(list_ptr->data);
+    \end{verbatim}
+    You must use the following structure, and turn it in as a file called ft\_list.h:
+    \begin{verbatim}
+typedef struct s_list { struct s_list *next; void *data; } t_list;
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include "ft_list.h"
+
+void ft_list_foreach(t_list *begin_list, void (*f)(void *))
+{
+    t_list *list_ptr;
+    list_ptr = begin_list;
+    while (list_ptr)
+    {
+        (*f)(list_ptr->data);
+        list_ptr = list_ptr->next;
+    }
+}
+    \end{lstlisting}
+}
+\tip{Itera a través de la lista y aplica la función a los datos de cada elemento.}
+\warning{No manejar listas vacías.}
+
+% =========================
+\exercise{ft\_list\_remove\_if}{4}{ft\_list\_remove\_if.c}{free}
+\description{
+    Write a function called ft\_list\_remove\_if that removes from the passed list any element the data of which is "equal" to the reference data.\\
+    It will be declared as follows:
+    \begin{verbatim}
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)());
+    \end{verbatim}
+    cmp takes two void* and returns 0 when both parameters are equal.\\
+    You have to use the ft\_list.h file.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <stdlib.h>
+#include "ft_list.h"
+
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+{
+    if (begin_list == NULL || *begin_list == NULL)
+        return;
+    t_list *cur = *begin_list;
+    if (cmp(cur->data, data_ref) == 0)
+    {
+        *begin_list = cur->next;
+        free(cur);
+        ft_list_remove_if(begin_list, data_ref, cmp);
+    }
+    cur = *begin_list;
+    ft_list_remove_if(&cur->next, data_ref, cmp);
+}
+    \end{lstlisting}
+}
+\tip{Usa recursión para eliminar elementos cuyos datos coinciden con data\_ref.}
+\warning{No actualizar correctamente la cabeza de la lista al eliminar el primer elemento.}
+
+% =========================
+\exercise{ft\_split}{4}{ft\_split.c}{malloc}
+\description{
+    Write a function that takes a string, splits it into words, and returns them as a NULL-terminated array of strings.\\
+    A "word" is defined as a part of a string delimited either by spaces/tabs/new lines, or by the start/end of the string.\\
+    Your function must be declared as follows:
+    \begin{verbatim}
+char **ft_split(char *str);
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <stdlib.h>
+
+char *ft_strncpy(char *s1, char *s2, int n)
+{
+    int i = -1;
+    while (++i < n && s2[i])
+        s1[i] = s2[i];
+    s1[i] = '\0';
+    return (s1);
+}
+
+char **ft_split(char *str)
+{
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int wc = 0;
+    while (str[i])
+    {
+        while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+            i++;
+        if (str[i])
+            wc++;
+        while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
+            i++;
+    }
+    char **out = (char **)malloc(sizeof(char *) * (wc + 1));
+    i = 0;
+    while (str[i])
+    {
+        while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+            i++;
+        j = i;
+        while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
+            i++;
+        if (i > j)
+        {
+            out[k] = (char *)malloc(sizeof(char) * ((i - j) + 1));
+            ft_strncpy(out[k++], &str[j], i - j);
+        }
+    }
+    out[k] = NULL;
+    return (out);
+}
+    \end{lstlisting}
+}
+\tip{Cuenta palabras, asigna un array de strings, luego copia cada palabra.}
+\warning{No terminar el array de strings con NULL.}
+
+% =========================
+\exercise{rev\_wstr}{4}{rev\_wstr.c}{write, malloc, free}
+\description{
+    Write a program that takes a string as a parameter, and prints its words in reverse order. A "word" is a part of the string bounded by spaces and/or tabs, or the begin/end of the string.\\
+    If the number of parameters is different from 1, the program will display '\textbackslash n'.\\
+    In the parameters that are going to be tested, there won't be any "additional" spaces (meaning that there won't be additional spaces at the beginning or at the end of the string, and words will always be separated by exactly one space).
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    int start;
+    int end;
+    int i = 0;
+    if(argc == 2)
+    {
+        while(argv[1][i] != '\0')
+            i++;
+        while(i >= 0)
+        {
+            while( argv[1][i] == '\0' || argv[1][i] == ' ' || argv[1][i] == '\t')
+                i--;
+            end = i;
+            while(argv[1][i] && argv[1][i] != ' ' && argv[1][i] != '\t')
+                i--;
+            start = i + 1;
+            int flag;
+            flag = start;
+            while(start <= end)
+            {
+                write (1, &argv[1][start],1);
+                start++;
+            }
+            if (flag !=0)
+            {
+                write(1, " ", 1);
+            }
+        }
+    }
+    write(1, "\n", 1);
+}
+    \end{lstlisting}
+}
+\tip{Encuentra cada palabra desde el final de la cadena y la imprime.}
+\warning{No manejar los espacios correctamente.}
+
+% =========================
+\exercise{rostring}{4}{rostring.c}{write, malloc, free}
+\description{
+    Write a program that takes a string and displays this string after rotating it one word to the left.\\
+    Thus, the first word becomes the last, and others stay in the same order.\\
+    A "word" is defined as a part of a string delimited either by spaces/tabs, or by the start/end of the string.\\
+    Words will be separated by only one space in the output.\\
+    If there's less than one argument, the program displays \textbackslash n.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    int i;
+    int start;
+    int end;
+    int flag;
+    flag = 0;
+    if (argc > 1 && argv[1][0])
+    {
+        i = 0;
+        while (argv[1][i] == ' ' || argv[1][i] == '\t')
+            i++;
+        start = i;
+        while (argv[1][i] != '\0' && argv[1][i] != ' ' && argv[1][i] != '\t')
+            i++;
+        end = i;
+        while(argv[1][i])
+        {
+            while (argv[1][i] == ' ' || argv[1][i] == '\t')
+                i++;
+            if (argv[1][i])
+            {
+                while ((argv[1][i] == ' ' && argv[1][i + 1] == ' ') ||
+                       (argv[1][i] == '\t' && argv[1][i + 1] == '\t'))
+                    i++;
+                if (argv[1][i] == ' ' || argv[1][i] == '\t')
+                    flag = 1;
+                write(1, &argv[1][i], 1);
+                i++;
+            }
+        }
+        if (flag)
+            write(1, " ", 1);
+        while (start < end)
+        {
+            write(1, &argv[1][start], 1);
+            start++;
+        }
+    }
+    write(1, "\n", 1);
+    return(0);
+}
+    \end{lstlisting}
+}
+\tip{Encuentra la primera palabra, luego imprime el resto de la cadena seguido de la primera palabra.}
+\warning{No manejar múltiples espacios correctamente.}
+
+% =========================
+\exercise{sort\_int\_tab}{4}{sort\_int\_tab.c}{}
+\description{
+    Write the following function:
+    \begin{verbatim}
+void sort_int_tab(int *tab, unsigned int size);
+    \end{verbatim}
+    It must sort (in-place) the 'tab' int array, that contains exactly 'size' members, in ascending order.\\
+    Doubles must be preserved.\\
+    Input is always coherent.
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+void sort_int_tab(int *tab, unsigned int size)
+{
+    unsigned int i = 0;
+    int temp;
+    while (i < (size - 1))
+    {
+        if (tab[i] > tab[i + 1])
+        {
+            temp = tab[i];
+            tab[i] = tab[i+ 1];
+            tab[i + 1] = temp;
+            i = 0;
+        }
+        else
+            i++;
+    }
+}
+    \end{lstlisting}
+}
+\tip{Usa bubble sort o un algoritmo de ordenamiento simple similar.}
+\warning{Errores de off-by-one en el bucle.}
+
+% =========================
+\exercise{sort\_list}{4}{sort\_list.c}{}
+\description{
+    Write the following functions:
+    \begin{verbatim}
+t_list *sort_list(t_list *lst, int (*cmp)(int, int));
+    \end{verbatim}
+    This function must sort the list given as a parameter, using the function pointer cmp to select the order to apply, and returns a pointer to the first element of the sorted list.\\
+    Duplications must remain.\\
+    Inputs will always be consistent.\\
+    You must use the type t\_list described in the file list.h that is provided to you. You must include that file (\#include "list.h"), but you must not turn it in. We will use our own to compile your assignment.\\
+    Functions passed as cmp will always return a value different from 0 if a and b are in the right order, 0 otherwise.\\
+    For example, the following function used as cmp will sort the list in ascending order:
+    \begin{verbatim}
+int ascending(int a, int b) { return (a <= b); }
+    \end{verbatim}
+}
+\codeblock{
+    \begin{lstlisting}[language=C]
+typedef struct s_list t_list;
+
+struct s_list
+{
+    int data;
+    t_list *next;
+};
+
+#include "list.h"
+
+t_list *sort_list(t_list *lst, int (*cmp)(int, int))
+{
+    int swap;
+    t_list *tmp;
+    tmp = lst;
+    while(lst->next != NULL)
+    {
+        if (((*cmp)(lst->data, lst->next->data)) == 0)
+        {
+            swap = lst->data;
+            lst->data = lst->next->data;
+            lst->next->data = swap;
+            lst = tmp;
+        }
+        else
+            lst = lst->next;
+    }
+    lst = tmp;
+    return (lst);
+}
+    \end{lstlisting}
+}
+\tip{Ordena la lista in-place usando la función de comparación proporcionada.}
+\warning{No manejar la cabeza de la lista correctamente.}
+
+\end{document}
