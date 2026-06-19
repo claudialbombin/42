@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:27:37 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 15:06:43 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/06/19 16:51:17 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,4 @@ void	*ft_memcpy(void *dest, const void *src, unsigned int n)
 // {
 // 	printf("ft_memcpy: prueba rápida\n");
 // 	return (0);
-// }
+// } 

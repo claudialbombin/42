@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
 int	ft_isascii(int c)
 {
 	if ((c >= 0) && (c <= 127))
@@ -19,6 +20,7 @@ int	ft_isascii(int c)
 
 // int	main(void)
 // {
-// 	printf("ft_isascii: prueba rápida\n");
+// 	printf("%d\n", ft_isascii(65));
+// 	printf("%d\n", ft_isascii(128));
 // 	return (0);
 // }

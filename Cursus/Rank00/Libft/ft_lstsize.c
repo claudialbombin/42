@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/05/18 15:06:43 by claudialbom      ###   ########.fr       */
+/*   Created: 2026/06/19 16:37:29 by clopez-b          #+#    #+#             */
+/*   Updated: 2026/06/19 16:37:34 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	*ft_memalloc(size_t size)
+int	ft_lstsize(t_list *lst)
 {
-	void	*ptr;
+	int	count;
 
-	ptr = (void *)malloc(size);
-	if (!ptr)
-		return (NULL);
-	ft_memset(ptr, 0, size);
-	return (ptr);
+	count = 0;
+	while (lst)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
 }
-// int	main(void)
-// {
-// 	printf("ft_memalloc: prueba rápida\n");
-// 	return (0);
-// }

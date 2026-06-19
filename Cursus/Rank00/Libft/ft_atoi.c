@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
 int	ft_atoi(const char *str)
 {
 	int	result;
@@ -35,3 +36,11 @@ int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
+
+// int	main(void)
+// {
+// 	printf("%d\n", ft_atoi("37"));
+// 	printf("%d\n", ft_atoi(" --459m3"));
+// 	printf("%d\n", ft_atoi(" -45m3"));
+// 	return (0);
+// }

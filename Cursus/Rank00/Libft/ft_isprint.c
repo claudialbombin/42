@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
 int	ft_isprint(int c)
 {
 	if ((c >= 32) && (c <= 126))
@@ -19,6 +20,7 @@ int	ft_isprint(int c)
 
 // int	main(void)
 // {
-// 	printf("ft_isprint: prueba rápida\n");
+// 	printf("%d\n", ft_isprint(32));
+// 	printf("%d\n", ft_isprint(126));
 // 	return (0);
 // }

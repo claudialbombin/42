@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:05:58 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 14:59:15 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/06/19 16:51:46 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,4 @@ unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
 // {
 // 	printf("ft_strlcat: prueba rápida\n");
 // 	return (0);
-// }
+// } 

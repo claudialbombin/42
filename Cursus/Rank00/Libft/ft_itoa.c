@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
 #include <stdlib.h>
 
 static int	ft_numlen(int n)
@@ -67,6 +68,7 @@ char	*ft_itoa(int n)
 
 // int	main(void)
 // {
-// 	printf("ft_itoa: prueba rápida\n");
+// 	printf("%s\n", ft_itoa(65));
+// 	printf("%s\n", ft_itoa(-128));
 // 	return (0);
 // }

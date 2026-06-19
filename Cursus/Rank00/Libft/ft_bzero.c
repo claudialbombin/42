@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// #include <stdio.h>
+// #include <stddef.h>
 #include <string.h>
 
 void	ft_bzero(void *s, size_t n)
@@ -23,3 +25,15 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
+
+// int	main(void)
+// {
+// 	char	str[50] = "Hello, World!";
+// 	size_t	n = 5;
+
+// 	printf("Before ft_bzero: %s\n", str);
+// 	ft_bzero(str, n);
+// 	printf("After ft_bzero: %s\n", str);
+
+// 	return (0);
+// }

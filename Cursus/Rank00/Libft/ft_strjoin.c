@@ -3,41 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/05/18 15:15:28 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/06/19 17:52:38 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strjoin_fill(char *result, char const *s1, char const *s2,
-		size_t len1)
-{
-	ft_strcpy(result, s1);
-	ft_strcpy(result + len1, s2);
-	return (result);
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*result;
-	size_t	len1;
-	size_t	len2;
+	char	*res;
+	size_t	i;
+	size_t	j;
 
 	if (!s1 || !s2)
 		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	result = (char *)malloc(len1 + len2 + 1);
-	if (!result)
+	res = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!res)
 		return (NULL);
-	return (ft_strjoin_fill(result, s1, s2, len1));
+	i = 0;
+	j = 0;
+	while (s1[i])
+		res[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		res[j++] = s2[i++];
+	res[j] = '\0';
+	return (res);
 }
-
-// int	main(void)
-// {
-// 	printf("ft_strjoin: prueba rápida\n");
-// 	return (0);
-// }

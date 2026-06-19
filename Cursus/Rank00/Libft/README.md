@@ -60,15 +60,19 @@ The library is split into three parts so it stays easier to read and reuse:
 
 ### 1. Libc-inspired functions
 
-These functions reproduce the behavior of the standard C library for the basics: memory operations, string handling, character checks, and simple conversions. Here I implemented functions such as `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`, `ft_strlen`, `ft_strdup`, `ft_strcpy`, `ft_strncpy`, `ft_strcat`, `ft_strncat`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strstr`, `ft_strnstr`, `ft_strcmp`, `ft_strncmp`, `ft_atoi`, `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, and `ft_tolower`.
+ft_isalpha, ft_isdigit, ft_isalnum, ft_isascii, ft_isprint, ft_strlen, ft_memset, ft_bzero, ft_memcpy, ft_memmove, ft_strlcpy, ft_strlcat, ft_toupper, ft_tolower, ft_strchr, ft_strrchr, ft_strncmp, ft_memchr, ft_memcmp, ft_strnstr, ft_atoi, ft_strdup.
+
+Additionally, dynamic allocation-related functions:
+
+ft_calloc
 
 ### 2. Additional utility functions
 
-This part adds the extra utilities that make the library more useful day to day: dynamic allocation helpers, string editing tools, higher-order string functions, formatted output helpers, and string slicing. It includes functions such as `ft_memalloc`, `ft_memdel`, `ft_strnew`, `ft_strdel`, `ft_strclr`, `ft_striter`, `ft_striteri`, `ft_strmap`, `ft_strmapi`, `ft_strequ`, `ft_strnequ`, `ft_strsub`, `ft_strjoin`, `ft_strtrim`, `ft_strsplit`, `ft_itoa`, `ft_putchar`, `ft_putstr`, `ft_putendl`, `ft_putnbr`, `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, and `ft_putnbr_fd`.
+This part adds the extra utilities that make the library more useful day to day: dynamic allocation helpers, string editing tools, higher-order string functions, formatted output helpers, and string slicing. It includes functions such as ft_substr, ft_strjoin, ft_strtrim, ft_split, ft_itoa, ft_strmapi, ft_striteri, ft_putchar_fd, ft_putstr_fd, ft_putendl_fd, ft_putnbr_fd.
 
 ### 3. Bonus linked-list functions
 
-The bonus part adds a simple singly linked list structure, `t_list`, together with helpers to create, add, delete, iterate, and map list nodes. These functions are `ft_lstnew`, `ft_lstdelone`, `ft_lstdel`, `ft_lstadd`, `ft_lstiter`, and `ft_lstmap`.
+The bonus part adds a simple singly linked list structure, `t_list`, together with helpers to create, add, delete, iterate, and map list nodes. These functions are ft_lstnew, ft_lstadd_front, ft_lstsize, ft_lstlast, ft_lstadd_back, ft_lstdelone, ft_lstclear, ft_lstiter, ft_lstmap.
 
 ## Resources 
 
@@ -82,7 +86,7 @@ The main references I used for this kind of project are:
 
 ### Use of AI
 
-AI was only used to write the `main` files in order to save time. It was not used to implement the library functions or to design the project itself.
+AI was only used to write the `main` in files in order to save time. It was not used to implement the library functions or to design the project itself.
 
 ## Additional Notes
 

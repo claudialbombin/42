@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:04:06 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 14:59:15 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/06/19 16:56:54 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,4 @@ void	*ft_strdup(const char *s1)
 // {
 // 	printf("ft_strdup: prueba rápida\n");
 // 	return (0);
-// }
+// } 

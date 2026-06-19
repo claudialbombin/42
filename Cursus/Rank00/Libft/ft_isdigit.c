@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
 int	ft_isdigit(int c)
 {
 	if ((c >= '0') && (c <= '9'))
@@ -19,6 +20,7 @@ int	ft_isdigit(int c)
 
 // int	main(void)
 // {
-// 	printf("ft_isdigit: prueba rápida\n");
+// 	printf("%d\n", ft_isdigit(48));
+// 	printf("%d\n", ft_isdigit(57));
 // 	return (0);
 // }

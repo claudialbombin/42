@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 21:54:59 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 15:02:52 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/06/19 16:54:25 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,4 @@ int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 // {
 // 	printf("ft_strncmp: prueba rápida\n");
 // 	return (0);
-// }
+// } 

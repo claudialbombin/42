@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:24:05 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/05/18 15:00:05 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/06/19 16:51:23 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,4 @@ void	*ft_memmove(void *dest, const void *src, unsigned int n)
 // {
 // 	printf("ft_memmove: prueba rápida\n");
 // 	return (0);
-// }
+// } 

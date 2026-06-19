@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:21:13 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 14:58:09 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/06/19 16:52:01 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,4 @@ int	ft_tolower(int c)
 // {
 // 	printf("ft_tolower: prueba rápida\n");
 // 	return (0);
-// }
+// } 

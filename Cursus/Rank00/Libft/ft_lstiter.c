@@ -3,28 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: clopez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
+/*   Created: 2026/06/19 16:45:53 by clopez-b          #+#    #+#             */
+/*   Updated: 2026/06/19 16:45:54 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !f)
+	if (!f)
 		return ;
 	while (lst)
 	{
-		f(lst);
+		f(lst->content);
 		lst = lst->next;
 	}
 }
-
-// int	main(void)
-// {
-// 	printf("ft_lstiter: prueba rápida\n");
-// 	return (0);
-// }

@@ -1,30 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/05/18 14:58:10 by claudialbom      ###   ########.fr       */
+/*   Created: 2026/06/19 17:21:58 by clopez-b          #+#    #+#             */
+/*   Updated: 2026/06/19 17:51:43 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
-#include <string.h>
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+static char	*empty_substr(void)
+{
+	char	*sub;
+
+	sub = malloc(1);
+	if (!sub)
+		return (NULL);
+	sub[0] = '\0';
+	return (sub);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	i;
+	size_t	s_len;
 
 	if (!s)
 		return (NULL);
-	sub = (char *)malloc((len + 1) * sizeof(char));
+	s_len = 0;
+	while (s[s_len])
+		s_len++;
+	if (start >= s_len)
+		return (empty_substr());
+	if (len > s_len - start)
+		len = s_len - start;
+	sub = malloc(len + 1);
 	if (!sub)
 		return (NULL);
 	i = 0;
-	while (i < len)
+	while (i < len && s[start + i])
 	{
 		sub[i] = s[start + i];
 		i++;
@@ -32,9 +51,3 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	sub[i] = '\0';
 	return (sub);
 }
-
-// int	main(void)
-// {
-// 	printf("ft_strsub: prueba rápida\n");
-// 	return (0);
-// }

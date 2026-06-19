@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/05/18 15:09:10 by claudialbom      ###   ########.fr       */
+/*   Created: 2026/06/19 16:35:51 by clopez-b          #+#    #+#             */
+/*   Updated: 2026/06/19 16:35:58 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!alst || !new)
+	if (!lst || !new)
 		return ;
-	new->next = *alst;
-	*alst = new;
+	new->next = *lst;
+	*lst = new;
 }
-
-// int	main(void)
-// {
-// 	printf("ft_lstadd: prueba rápida\n");
-// 	return (0);
-// }

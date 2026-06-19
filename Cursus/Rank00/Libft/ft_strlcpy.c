@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 13:22:48 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 15:05:43 by claudialbom      ###   ########.fr       */
+/*   Created: 2026/06/19 17:16:30 by clopez-b          #+#    #+#             */
+/*   Updated: 2026/06/19 17:30:51 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, const char *src)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	len;
 
+	len = 0;
+	while (src[len])
+		len++;
+	if (size == 0)
+		return (len);
 	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
+	while (src[i] && i < size - 1)
 	{
-		dest[i] = src[j];
+		dst[i] = src[i];
 		i++;
-		j++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	dst[i] = '\0';
+	return (len);
 }
-
-// int	main(void)
-// {
-// 	printf("ft_strcat: prueba rápida\n");
-// 	return (0);
-// }

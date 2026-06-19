@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: clopez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2025/10/08 22:28:26 by clopez-b         ###   ########.fr       */
+/*   Created: 2026/06/19 16:40:13 by clopez-b          #+#    #+#             */
+/*   Updated: 2026/06/19 16:40:20 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+#include "libft.h"
+
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		s[i] = '\0';
-		i++;
-	}
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
-
-// int	main(void)
-// {
-// 	printf("ft_strclr: prueba rápida\n");
-// 	return (0);
-// }

@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/05/18 15:06:43 by claudialbom      ###   ########.fr       */
+/*   Created: 2026/06/19 16:44:21 by clopez-b          #+#    #+#             */
+/*   Updated: 2026/06/19 16:44:26 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
+#include <stdlib.h>
 
-void	ft_putendl(char const *s)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int	i;
+	t_list	*tmp;
 
-	if (!s)
+	if (!lst || !del)
 		return ;
-	i = 0;
-	while (s[i] != '\0')
+	while (*lst)
 	{
-		write(1, &s[i], 1);
-		i++;
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
 	}
-	write(1, "\n", 1);
+	*lst = NULL;
 }
-
-// int	main(void)
-// {
-// 	printf("ft_putendl: prueba rápida\n");
-// 	return (0);
-// }

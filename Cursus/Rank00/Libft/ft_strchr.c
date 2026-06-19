@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:26:32 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 17:09:47 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/06/19 17:30:40 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

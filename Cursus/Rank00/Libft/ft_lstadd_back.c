@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 22:28:17 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/05/18 14:58:10 by claudialbom      ###   ########.fr       */
+/*   Created: 2026/06/19 16:41:22 by clopez-b          #+#    #+#             */
+/*   Updated: 2026/06/19 16:41:50 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striter(char *s, void (*f)(char *))
+#include "libft.h"
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
+	t_list	*last;
 
-	if (!s || !f)
+	if (!lst || !new)
 		return ;
-	i = 0;
-	while (s[i] != '\0')
+	if (!*lst)
 	{
-		f(&s[i]);
-		i++;
+		*lst = new;
+		return ;
 	}
+	last = ft_lstlast(*lst);
+	last->next = new;
 }
-
-// int	main(void)
-// {
-// 	printf("ft_striter: prueba rápida\n");
-// 	return (0);
-// }

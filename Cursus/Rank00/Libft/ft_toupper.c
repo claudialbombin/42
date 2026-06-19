@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 22:21:43 by claudialbom       #+#    #+#             */
-/*   Updated: 2026/05/18 15:05:07 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/06/19 16:51:56 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,4 @@ int	ft_toupper(int c)
 // {
 // 	printf("ft_toupper: prueba rápida\n");
 // 	return (0);
-// }
+// } 
