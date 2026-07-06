@@ -1,0 +1,4 @@
+Primera linea del archivo dos
+Segunda linea del archivo dos
+Tercera linea del archivo dos
+Cuarta y ultima linea
