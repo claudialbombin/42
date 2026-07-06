@@ -18,11 +18,11 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS =  get_next_line.c \
         get_next_line_utils.c \
-        main_test.c
+	mains/main_test.c
 
 SRCS_BONUS =    get_next_line_bonus.c \
                 get_next_line_utils_bonus.c \
-                main_test_bonus.c
+		mains/main_test_bonus.c
 
 # Object files: substitutes .c with .o for each source file
 OBJS = $(SRCS:.c=.o)

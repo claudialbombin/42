@@ -3,19 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 00:00:00 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/07/06 00:00:00 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/07/06 12:02:53 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+static char	*append_buffer(char *saved, char *buf)
+{
+	char	*tmp;
+
+	tmp = saved;
+	saved = gnl_strjoin(tmp, buf);
+	free(tmp);
+	return (saved);
+}
+
 static char	*fill_buffer(int fd, char *saved)
 {
 	char	*buf;
-	char	*tmp;
 	ssize_t	bytes_read;
 
 	buf = malloc(BUFFER_SIZE + 1);
@@ -32,9 +41,7 @@ static char	*fill_buffer(int fd, char *saved)
 			return (NULL);
 		}
 		buf[bytes_read] = '\0';
-		tmp = saved;
-		saved = gnl_strjoin(tmp, buf);
-		free(tmp);
+		saved = append_buffer(saved, buf);
 		if (!saved)
 			break ;
 	}
