@@ -6,46 +6,43 @@
 /*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 00:00:00 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/07/06 12:02:53 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/07/07 12:41:58 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static char	*append_buffer(char *saved, char *buf)
+static void	gnl_reset(char **saved)
 {
-	char	*tmp;
-
-	tmp = saved;
-	saved = gnl_strjoin(tmp, buf);
-	free(tmp);
-	return (saved);
+	free(*saved);
+	*saved = NULL;
 }
 
 static char	*fill_buffer(int fd, char *saved)
 {
-	char	*buf;
-	ssize_t	bytes_read;
+	char		*buf;
+	ssize_t		bytes_read;
+	char		*tmp;
 
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
-		return (NULL);
+		return (gnl_reset(&saved), NULL);
 	bytes_read = 1;
 	while (!gnl_strchr(saved, '\n') && bytes_read > 0)
 	{
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 		if (bytes_read < 0)
-		{
-			free(buf);
-			free(saved);
-			return (NULL);
-		}
+			return (gnl_reset(&saved), free(buf), NULL);
 		buf[bytes_read] = '\0';
-		saved = append_buffer(saved, buf);
+		tmp = saved;
+		saved = gnl_strjoin(tmp, buf);
+		free(tmp);
 		if (!saved)
 			break ;
 	}
 	free(buf);
+	if (bytes_read < 0)
+		return (gnl_reset(&saved), NULL);
 	return (saved);
 }
 
@@ -87,14 +84,14 @@ char	*get_next_line(int fd)
 		return (NULL);
 	if (!saved[fd])
 		saved[fd] = gnl_substr("", 0, 0);
+	if (!saved[fd])
+		return (NULL);
 	saved[fd] = fill_buffer(fd, saved[fd]);
 	if (!saved[fd] || !*saved[fd])
-	{
-		free(saved[fd]);
-		saved[fd] = NULL;
-		return (NULL);
-	}
+		return (gnl_reset(&saved[fd]), NULL);
 	line = extract_line(saved[fd]);
+	if (!line)
+		return (gnl_reset(&saved[fd]), NULL);
 	saved[fd] = keep_remainder(saved[fd]);
 	return (line);
 }

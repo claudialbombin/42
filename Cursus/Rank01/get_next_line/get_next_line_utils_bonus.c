@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 00:00:00 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/07/06 00:00:00 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/07/07 12:27:52 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	gnl_strlen(const char *s)
 {
 	size_t	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;
@@ -26,6 +28,8 @@ char	*gnl_strchr(const char *s, int c)
 {
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{
@@ -42,12 +46,20 @@ char	*gnl_substr(const char *s, size_t start, size_t len)
 {
 	char	*sub;
 	size_t	i;
+	size_t	s_len;
 
+	if (!s)
+		return (NULL);
+	s_len = gnl_strlen(s);
+	if (start >= s_len)
+		len = 0;
+	else if (len > s_len - start)
+		len = s_len - start;
 	sub = malloc(len + 1);
 	if (!sub)
 		return (NULL);
 	i = 0;
-	while (i < len && s[start + i])
+	while (i < len)
 	{
 		sub[i] = s[start + i];
 		i++;
@@ -61,25 +73,23 @@ char	*gnl_strjoin(char *s1, char *s2)
 	char	*res;
 	size_t	i;
 	size_t	j;
+	size_t	len1;
+	size_t	len2;
 
 	if (!s1 || !s2)
 		return (NULL);
-	res = malloc(gnl_strlen(s1) + gnl_strlen(s2) + 1);
+	len1 = gnl_strlen(s1);
+	len2 = gnl_strlen(s2);
+	res = malloc(len1 + len2 + 1);
 	if (!res)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s1[i])
-	{
-		res[j++] = s1[i];
-		i++;
-	}
+	while (i < len1)
+		res[j++] = s1[i++];
 	i = 0;
-	while (s2[i])
-	{
-		res[j++] = s2[i];
-		i++;
-	}
+	while (i < len2)
+		res[j++] = s2[i++];
 	res[j] = '\0';
 	return (res);
 }
