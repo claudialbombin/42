@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 00:00:00 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/07/06 00:00:00 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:05:44 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	handle_unknown(char c)
+{
+	int	ret;
+	int	ret2;
+
+	ret = ft_putchar_count('%');
+	if (ret == -1)
+		return (-1);
+	ret2 = ft_putchar_count(c);
+	if (ret2 == -1)
+		return (-1);
+	return (ret + ret2);
+}
 
 static int	handle_format(char c, va_list args)
 {
@@ -30,7 +44,26 @@ static int	handle_format(char c, va_list args)
 		return (ft_puthex_count(va_arg(args, unsigned int), 1));
 	if (c == '%')
 		return (ft_putchar_count('%'));
-	return (ft_putchar_count('%') + ft_putchar_count(c));
+	return (handle_unknown(c));
+}
+	// if (c == 'a')
+	// 	return (ft_putstr_count("amazing "));
+
+static int	print_next(const char *format, int *i, va_list args)
+{
+	int	ret;
+
+	if (format[*i] == '%' && format[*i + 1])
+	{
+		ret = handle_format(format[*i + 1], args);
+		*i += 2;
+	}
+	else
+	{
+		ret = ft_putchar_count(format[*i]);
+		*i += 1;
+	}
+	return (ret);
 }
 
 int	ft_printf(const char *format, ...)
@@ -38,6 +71,7 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		count;
 	int		i;
+	int		ret;
 
 	if (!format)
 		return (-1);
@@ -46,16 +80,13 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1])
+		ret = print_next(format, &i, args);
+		if (ret == -1)
 		{
-			count += handle_format(format[i + 1], args);
-			i += 2;
+			va_end(args);
+			return (-1);
 		}
-		else
-		{
-			count += ft_putchar_count(format[i]);
-			i++;
-		}
+		count += ret;
 	}
 	va_end(args);
 	return (count);

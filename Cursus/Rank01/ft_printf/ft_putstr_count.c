@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 00:00:00 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/07/06 00:00:00 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:01:31 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	ft_putstr_count(char *s)
 	count = 0;
 	while (s[count])
 	{
-		write(1, &s[count], 1);
+		if (write(1, &s[count], 1) < 0)
+			return (-1);
 		count++;
 	}
 	return (count);

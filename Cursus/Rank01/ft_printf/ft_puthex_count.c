@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthex_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 00:00:00 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/07/06 00:00:00 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:01:06 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,18 @@ static char	hex_char(unsigned long digit, int is_upper)
 int	ft_puthex_count(unsigned long n, int is_upper)
 {
 	int	count;
+	int	ret;
 
 	count = 0;
 	if (n >= 16)
-		count += ft_puthex_count(n / 16, is_upper);
-	count += ft_putchar_count(hex_char(n % 16, is_upper));
-	return (count);
+	{
+		ret = ft_puthex_count(n / 16, is_upper);
+		if (ret == -1)
+			return (-1);
+		count += ret;
+	}
+	ret = ft_putchar_count(hex_char(n % 16, is_upper));
+	if (ret == -1)
+		return (-1);
+	return (count + ret);
 }

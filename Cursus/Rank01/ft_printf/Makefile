@@ -37,7 +37,7 @@ $(NAME): $(OBJS)
 
 # Builds a small test binary comparing ft_printf against the libc printf
 test: $(NAME)
-	$(CC) $(CFLAGS) main_test.c $(NAME) -o $(TEST_NAME)
+	$(CC) $(CFLAGS) -I. mains/main_test.c $(NAME) -o $(TEST_NAME)
 
 # Removes object files only
 clean:

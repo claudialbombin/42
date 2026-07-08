@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 00:00:00 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/07/06 00:00:00 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:00:37 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,41 @@
 static int	putnbr_recursive(unsigned long n)
 {
 	int	count;
+	int	ret;
 
 	count = 0;
 	if (n >= 10)
-		count += putnbr_recursive(n / 10);
-	count += ft_putchar_count((n % 10) + '0');
-	return (count);
+	{
+		ret = putnbr_recursive(n / 10);
+		if (ret == -1)
+			return (-1);
+		count += ret;
+	}
+	ret = ft_putchar_count((n % 10) + '0');
+	if (ret == -1)
+		return (-1);
+	return (count + ret);
 }
 
 int	ft_putnbr_count(int n)
 {
 	int				count;
+	int				ret;
 	unsigned long	nb;
 
 	count = 0;
 	if (n < 0)
 	{
-		count += ft_putchar_count('-');
+		ret = ft_putchar_count('-');
+		if (ret == -1)
+			return (-1);
+		count += ret;
 		nb = (unsigned long)(-(long)n);
 	}
 	else
 		nb = (unsigned long)n;
-	count += putnbr_recursive(nb);
-	return (count);
+	ret = putnbr_recursive(nb);
+	if (ret == -1)
+		return (-1);
+	return (count + ret);
 }

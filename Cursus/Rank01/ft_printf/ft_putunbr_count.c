@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putunbr_count.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 00:00:00 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/07/06 00:00:00 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:00:53 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,18 @@
 int	ft_putunbr_count(unsigned int n)
 {
 	int	count;
+	int	ret;
 
 	count = 0;
 	if (n >= 10)
-		count += ft_putunbr_count(n / 10);
-	count += ft_putchar_count((n % 10) + '0');
-	return (count);
+	{
+		ret = ft_putunbr_count(n / 10);
+		if (ret == -1)
+			return (-1);
+		count += ret;
+	}
+	ret = ft_putchar_count((n % 10) + '0');
+	if (ret == -1)
+		return (-1);
+	return (count + ret);
 }
