@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_test_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 00:00:00 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/07/20 11:07:00 by clopez-b         ###   ########.fr       */
+/*   Updated: 2026/07/20 14:48:50 by claudialbom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,37 @@ static void	print_file(int fd, char *prefix)
 ** the other. That setup checks that each descriptor keeps its own buffer and
 ** does not leak state into the other stream.
 */
-int	main(int argc, char **argv)
+// int	main(int argc, char **argv)
+// {
+// 	int		fd1;
+// 	int		fd2;
+
+// 	if (argc != 3)
+// 	{
+// 		printf("Usage: %s <file1> <file2>\n", argv[0]);
+// 		return (1);
+// 	}
+// 	fd1 = open(argv[1], O_RDONLY);
+// 	fd2 = open(argv[2], O_RDONLY);
+// 	if (fd1 < 0 || fd2 < 0)
+// 	{
+// 		printf("Error: could not open one of the files\n");
+// 		return (1);
+// 	}
+// 	print_file(fd1, "[fd1] ");
+// 	print_file(fd2, "[fd2] ");
+// 	close(fd1);
+// 	close(fd2);
+// 	return (0);
+// }
+
+int	main(void)
 {
 	int		fd1;
 	int		fd2;
 
-	if (argc != 3)
-	{
-		printf("Usage: %s <file1> <file2>\n", argv[0]);
-		return (1);
-	}
-	fd1 = open(argv[1], O_RDONLY);
-	fd2 = open(argv[2], O_RDONLY);
+	fd1 = open("tests/test1.txt", O_RDONLY);
+	fd2 = open("tests/test2.txt", O_RDONLY);
 	if (fd1 < 0 || fd2 < 0)
 	{
 		printf("Error: could not open one of the files\n");
