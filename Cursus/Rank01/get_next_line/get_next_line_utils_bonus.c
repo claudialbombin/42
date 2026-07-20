@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudialbombin <claudialbombin@student.    +#+  +:+       +#+        */
+/*   By: clopez-b <clopez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 00:00:00 by clopez-b          #+#    #+#             */
-/*   Updated: 2026/07/07 12:27:52 by claudialbom      ###   ########.fr       */
+/*   Updated: 2026/07/20 11:06:00 by clopez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
