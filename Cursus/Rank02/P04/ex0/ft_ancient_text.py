@@ -3,28 +3,29 @@ import typing
 
 
 def read_archive(file_path: str) -> typing.Generator[str, None, None]:
-    file = None
-    try:
-        file = open(file_path, "r")
+    with open(file_path, "r") as file:
         for line in file:
-            yield line.strip()
-    except FileNotFoundError:
-        print(f"File {file_path} not found.")
-        sys.exit(1)
-    finally:
-        if file is not None:
-            file.close()
+            yield line.rstrip("\n")
 
 
 def main() -> None:
     if len(sys.argv) != 2:
-        print("Usage: python ft_ancient_text.py <archive.txt>")
+        print("Usage: ft_ancient_text.py <file>")
         sys.exit(1)
 
     file_path = sys.argv[1]
-    for line in read_archive(file_path):
-        print(line)
-    print(f"Finished reading archive: {file_path}")
+    print("=== Cyber Archives Recovery ===")
+    print(f"Accessing file '{file_path}'")
+
+    try:
+        print("---")
+        for index, line in enumerate(read_archive(file_path), start=1):
+            print(f"[FRAGMENT {index:03d}] {line}")
+        print("---")
+        print(f"File '{file_path}' closed.")
+    except OSError as error:
+        print(f"Error opening file '{file_path}': {error}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
