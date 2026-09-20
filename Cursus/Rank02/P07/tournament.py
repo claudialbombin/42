@@ -15,9 +15,15 @@ def battle(opponents: list[Opponent]) -> None:
     print("*** Tournament ***")
     print(f"{len(opponents)} opponents involved")
 
-    for i, (factory1, strategy1) in enumerate(opponents):
-        for factory2, strategy2 in opponents[i + 1:]:
-            fight_one(factory1, strategy1, factory2, strategy2)
+    # An invalid Creature-strategy tuple raises InvalidStrategyError in
+    # fight_one: catching it out here, around both loops, is what really
+    # aborts the tournament (no more battles are played after an error).
+    try:
+        for i, (factory1, strategy1) in enumerate(opponents):
+            for factory2, strategy2 in opponents[i + 1:]:
+                fight_one(factory1, strategy1, factory2, strategy2)
+    except InvalidStrategyError as error:
+        print(f"Battle error, aborting tournament: {error}")
 
 
 def fight_one(
@@ -35,11 +41,8 @@ def fight_one(
     print(creature2.describe())
     print(" now fight!")
 
-    try:
-        strategy1.act(creature1)
-        strategy2.act(creature2)
-    except InvalidStrategyError as error:
-        print(f"Battle error, aborting tournament: {error}")
+    strategy1.act(creature1)
+    strategy2.act(creature2)
 
 
 def main() -> None:
