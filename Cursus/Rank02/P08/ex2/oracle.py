@@ -1,10 +1,31 @@
+import importlib
 import os
+import sys
+from typing import Any, Optional
 
-from dotenv import load_dotenv
+
+def import_dotenv() -> Optional[Any]:
+    # python-dotenv is loaded with importlib (same trick as in
+    # ex1/loading.py): if it is missing we can print a helpful message
+    # instead of crashing, and mypy --strict stays happy either way.
+    try:
+        return importlib.import_module("dotenv")
+    except ImportError:
+        return None
 
 
-def load_configuration() -> dict[str, str]:
-    load_dotenv()
+def get_env_path() -> str:
+    # The .env is always looked for next to this script, not in the
+    # current directory, so the result is the same wherever oracle.py
+    # is launched from.
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(script_dir, ".env")
+
+
+def load_configuration(dotenv: Any, env_path: str) -> dict[str, str]:
+    # load_dotenv does not override variables that already exist, so
+    # real environment variables win over the .env file.
+    dotenv.load_dotenv(env_path)
     return {
         "MATRIX_MODE": os.environ.get("MATRIX_MODE", "development"),
         "DATABASE_URL": os.environ.get(
@@ -43,8 +64,15 @@ def check_security(env_file_exists: bool) -> None:
 def main() -> None:
     print("ORACLE STATUS: Reading the Matrix...\n")
 
-    env_file_exists = os.path.isfile(".env")
-    config = load_configuration()
+    dotenv = import_dotenv()
+    if dotenv is None:
+        print("[ERROR] python-dotenv is not installed.")
+        print("Install it with: pip install python-dotenv")
+        sys.exit(1)
+
+    env_path = get_env_path()
+    env_file_exists = os.path.isfile(env_path)
+    config = load_configuration(dotenv, env_path)
 
     print("Configuration loaded:")
     print(f"Mode: {config['MATRIX_MODE']}")

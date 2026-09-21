@@ -2,6 +2,9 @@
 name = "exercise"
 version = "0.1.0"
 description = "Matrix data loading exercise (pip vs Poetry demo)"
+# We only use Poetry to manage dependencies, this is not a package to
+# build: without this, 'poetry install' fails looking for the project.
+package-mode = false
 authors = ["Claudia <claudialbombin@gmail.com>"]
 
 [tool.poetry.dependencies]
