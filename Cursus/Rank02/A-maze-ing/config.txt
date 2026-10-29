@@ -1,0 +1,18 @@
+# Default configuration of A-Maze-ing
+# One KEY=VALUE per line, lines starting with # are ignored
+
+# Mandatory keys
+WIDTH=20
+HEIGHT=15
+ENTRY=0,0
+EXIT=19,14
+OUTPUT_FILE=maze.txt
+PERFECT=False
+
+# Optional keys
+# SEED: same seed = same maze (random if not given)
+SEED=42
+# ALGORITHM: backtracker or prim
+ALGORITHM=prim
+# ANIMATION: show the generation step by step
+ANIMATION=True

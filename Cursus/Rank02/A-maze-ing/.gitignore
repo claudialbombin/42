@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Build of the package (the .whl at the root is kept)
+build/
+dist/
+*.egg-info/
+
+# Generated mazes and local tests
+maze.txt
+tests/
+
+# OS / editors
+.DS_Store
+.vscode/

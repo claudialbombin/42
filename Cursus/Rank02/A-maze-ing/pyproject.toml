@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mazegen"
+version = "1.0.0"
+description = "Maze generator made for the A-Maze-ing project of 42"
+readme = "mazegen/README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE.md"]
+authors = [{name = "clopez-b"}]
+
+# only the mazegen package goes in the wheel, the rest is the program
+[tool.setuptools.packages.find]
+include = ["mazegen", "mazegen.*"]
+
+[tool.setuptools.package-data]
+mazegen = ["README.md"]
+
+[tool.mypy]
+exclude = ["venv", "\\.venv", "build", "dist"]
