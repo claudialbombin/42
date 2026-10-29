@@ -8,9 +8,10 @@ Every line ends with a '\\n'.
 """
 
 from mazegen import MazeGenerator
+from typing import Any
 
 
-def maze_to_text(maze: MazeGenerator) -> str:
+def maze_to_text(maze: MazeGenerator) -> str | Any:
     """Build the full content of the output file for this maze.
 
     I build all the text first and write it after, so if something
